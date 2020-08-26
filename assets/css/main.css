@@ -1,5 +1,7 @@
-@import '/apps/keep/assets/keep-main.css';
-
+@import '../../apps/keep/assets/keep-main.css';
+@import '../../apps/mail/assets/mail-main.css';
+@import '../../apps/mail/assets/mail-details.css';
+@import '../../apps/mail/assets/mail-list.css';
 body {
     margin: 0 auto;
     overflow: hidden;

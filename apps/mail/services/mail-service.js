@@ -9,14 +9,16 @@ export const MailService = {
     getIdxById,
     toggleStar,
     toggleArchived,
-    markAsRead
+    markAsRead,
+    removeMail
 }
 
 
 var templateMails = [
-    { id: utils.makeId(), subject: 'WHERE ARE YOU', isRead: false, body: 'I hope you\'re not talking about what we said we won\'t talk about', sentAt: Date.now(), isStarred: false, author: 'Tyler Durden', isArchived: false },
+    { id: 'aeio1', subject: 'WHERE ARE YOU', isRead: false, body: 'I hope you\'re not talking about what we said we won\'t talk about', sentAt: Date.now(), isStarred: false, author: 'Tyler Durden', isArchived: false },
     { id: utils.makeId(), subject: 'I\'m knocking...', isRead: true, body: '', sentAt: Date.now(), isStarred: false, author: 'Walter White', isArchived: false },
     { id: utils.makeId(), subject: 'Noice', isRead: false, body: 'Cool cool cool cool cool cool cool', sentAt: Date.now(), isStarred: true, author: 'Jake Peralta', isArchived: false },
+    { id: utils.makeId(), subject: 'REVENGE', isRead: false, body: 'My name is Maximus Decimus Meridius, Commander of the Armies of the North, General of the Felix Legions, loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son, husband to a murdered wife. And I will have my vengeance, in this life or the next.', sentAt: Date.now(), isStarred: true, author: 'Maximus Decimus Meridius', isArchived: false }
 ]
 
 
@@ -41,7 +43,6 @@ function addMail(subject, body, author = 'me@appsusmail.com') {
 }
 
 function toggleStar(id) {
-    console.log(id)
     return new Promise(resolve => {
         toggleStatus('isStarred', id)
         resolve()
@@ -50,8 +51,9 @@ function toggleStar(id) {
 
 function toggleArchived(id) {
     return new Promise(resolve => {
-        toggleStatus('isArchived', id)
-        resolve()
+        toggleStatus('isArchived', id).then(res => {
+            resolve()
+        })
     })
 }
 
@@ -67,19 +69,31 @@ function markAsRead(id) {
     })
 }
 
+function removeMail(id) {
+    return new Promise(resolve => {
+        getAllMails()
+            .then(mails => {
+                var currMailIdx = mails.findIndex(mail => mail.id === id)
+                mails.splice(currMailIdx, 1)
+                StorageService.saveToStorage('mailsList', mails)
+                resolve()
+            })
+    })
+}
 
 function toggleStatus(status, id) {
     return new Promise(resolve => {
         getAllMails()
             .then(mails => {
-                var currMail = mails.find(mail => mail.id === id)
+                var currMailIdx = mails.findIndex(mail => mail.id === id)
+                var currMail = mails[currMailIdx]
                 if (currMail[status]) {
                     currMail[status] = false
                 } else {
                     currMail[status] = true
                 }
                 StorageService.saveToStorage('mailsList', mails)
-                return resolve()
+                resolve()
             })
     })
 }
@@ -90,6 +104,7 @@ function getAllMails() {
         StorageService.saveToStorage('mailsList', templateMails)
         mails = templateMails
     }
+    console.log('getting mails', mails)
     return Promise.resolve(mails)
 }
 

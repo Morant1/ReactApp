@@ -1,53 +1,49 @@
-img {
-    width: 100%;
-}
-
-.mail-list-container {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-}
-
-.mail-list {
-    width: 100%;
-    margin: 0px;
-    padding: 0.5rem
-}
-
-.mail-preview-line {
-    display: flex;
-    width: 100%;
-    box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.122);
-    padding: 10px;
-}
-
-.mail-preview-line div {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden
-}
-
-.mail-preview-author {
-    min-width: 10rem;
-}
-
-.mail-preview-contents {
-    flex-grow: 4;
-}
-
-.mail-preview-subject {
-    color: rgb(29, 29, 29)
-}
-
-.mail-preview-body {
-    color: #5f6368
-}
-
-.mail-preview-read {
-    background-color: rgba(242, 245, 245, 0.8);
-}
-
-.mail-preview-star {
-    width: 1rem;
-    padding: 0.1rem 0.5rem;
-}
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    img {
+        width: 100%;
+    }
+    
+    .mail-main-container {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+        width: 100%;
+    }
+    
+    .mail-sidebar {
+        display: flex;
+        flex-direction: column;
+        min-width: 8rem;
+    }
+    
+    .mail-sidebar a {
+        color: rgb(29, 29, 29);
+        text-decoration: none;
+    }
+    
+    .mail-sidebar a:visited {
+        color: rgb(29, 29, 29)
+    }
+    
+    .mail-sidebar-option {
+        padding: 0.25rem 0.25rem 0.25rem 1rem
+    }
+    
+    .mail-sidebar-option:hover {
+        background-color: #ccc;
+        border-radius: 0px 1rem 1rem 0px;
+    }
+    
+    .active-mail-nav {
+        background-color: palevioletred;
+        border-radius: 0px 1rem 1rem 0px;
+        color: red !important;
+        font-size: 0.875rem;
+    }
+    
+    .active-mail-nav:hover {
+        background-color: palevioletred;
+    }
