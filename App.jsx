@@ -1,17 +1,22 @@
 import Home from './pages/Home.jsx'
+const Router = ReactRouterDOM.HashRouter
+const { Route, Switch } = ReactRouterDOM
+
 export class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <header>
-                    <h1>Lets Play</h1>
-                </header>
+            <Router>
                 <main>
-                    <Home />
+                    <Switch>
+                        <Route component={ KeepApp } path="/keep" />
+                        <Route component={ MailApp } path="/mail" />
+                        <Route component={ About } path="/about" />
+                        <Route component={ Home } path="/" />
+                    </Switch>
                 </main>
-
-            </div>
+                {/* <Msg /> */}
+            </Router>
         )
     }
 }
