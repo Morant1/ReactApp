@@ -1,0 +1,49 @@
+.mail-details-container {
+    display: flex;
+}
+
+.mail-details-content-container {
+    width: 100%;
+    padding: 5px;
+}
+
+.mail-details-badge {
+    background-color: green;
+    border-radius: 500px;
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 4.5rem;
+    text-align: center;
+    color: rgb(240, 240, 240)
+}
+
+.mail-details-subject {
+    font-size: 1.375rem;
+    font-weight: 400;
+    padding: 20px 0px 8px 72px
+}
+
+.mail-details-author {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 20px;
+}
+
+.mail-details-to {
+    margin-left: 0.5rem;
+    font-size: 0.75rem;
+    color: #5f6368;
+}
+
+.mail-details-body {
+    font-size: 0.875rem;
+    font-weight: 300;
+    margin: 1rem;
+}
+
+.mail-details-author-container {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,4 +1,4 @@
-
+import {formatDate} from './format-date.jsx'
 
 export default class MailPreview extends React.Component {
     state = {
@@ -12,14 +12,14 @@ export default class MailPreview extends React.Component {
         isArchived: false
     }
     
-    formatDate = () => {
-        var date = new Date(this.state.sentAt)
-        var today = new Date(Date.now())
-        // if the e-mail is from today - return the time it was sent
-        if (date.toLocaleDateString() === today.toLocaleDateString()) return date.toLocaleTimeString()
-        // else - return the date it was sent on
-        return date.toLocaleDateString()
-    }
+    // formatDate = () => {
+    //     var date = new Date(this.state.sentAt)
+    //     var today = new Date(Date.now())
+    //     // if the e-mail is from today - return the time it was sent
+    //     if (date.toLocaleDateString() === today.toLocaleDateString()) return date.toLocaleTimeString()
+    //     // else - return the date it was sent on
+    //     return date.toLocaleDateString()
+    // }
 
     isMailRead = () => {
         if (this.state.isRead) return 'mail-preview-line mail-preview-read'
@@ -32,8 +32,11 @@ export default class MailPreview extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.mail.isStarred !== this.props.mail.isStarred) {
-            this.setState(this.props.mail)
+        if (prevProps.mail.isStarred !== this.props.mail.isStarred) {            
+            this.setState({isStarred:this.props.mail.isStarred})
+        }
+        if (prevProps.mail.isRead !== this.props.mail.isRead) {            
+            this.setState({isRead:this.props.mail.isRead})
         }
     }
     
@@ -43,13 +46,16 @@ export default class MailPreview extends React.Component {
     
 
     render() {
-        console.log('rendering mail preview')
         return (
-            <li className={this.isMailRead()} onClick={() => {this.props.readFn(this.state.id)}}>
+            <li className={this.isMailRead()} >
                 <div className="mail-preview-star" onClick={() => {this.props.starFn(this.state.id)}}>{this.isMailStarred()}</div>
-                <div className="mail-preview-author">{this.state.author}</div>
-                <div className="mail-preview-contents"><span className="mail-previw-subject">{this.state.subject} -</span><span className="mail-preview-body"> {this.state.body}</span></div>
-                <div className="mail-preview-sentAt">{this.formatDate()}</div>
+                <div className="mail-preview-author" onClick={() => {this.props.readFn(this.state.id)}}>{this.state.author}</div>
+                <div className="mail-preview-contents" onClick={() => {this.props.readFn(this.state.id)}}><span className="mail-previw-subject">{this.state.subject} -</span><span className="mail-preview-body"> {this.state.body}</span></div>
+                <div className="mail-preview-sentAt">{formatDate(this.state.sentAt)}</div>
+                <div className="mail-preview-remove-container">
+                    <div className="mail-preview-remove" onClick={() => {this.props.removeFn(this.state.id)}}></div>
+                    <div className="mail-preview-archive" onClick={() => {this.props.archiveFn(this.state.id)}}></div>
+                </div>
             </li>
         )
     }
