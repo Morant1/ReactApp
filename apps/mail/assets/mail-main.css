@@ -22,6 +22,7 @@
     .mail-sidebar a {
         color: rgb(29, 29, 29);
         text-decoration: none;
+        font-size: 0.875rem;
     }
     
     .mail-sidebar a:visited {
@@ -29,7 +30,9 @@
     }
     
     .mail-sidebar-option {
-        padding: 0.25rem 0.25rem 0.25rem 1rem
+        padding: 0.3rem 1rem;
+        display: flex;
+        justify-content: space-between;
     }
     
     .mail-sidebar-option:hover {
@@ -38,12 +41,12 @@
     }
     
     .active-mail-nav {
-        background-color: palevioletred;
+        background-color: #fce8e6;
         border-radius: 0px 1rem 1rem 0px;
         color: red !important;
         font-size: 0.875rem;
     }
     
     .active-mail-nav:hover {
-        background-color: palevioletred;
+        background-color: #fce8e6;
     }

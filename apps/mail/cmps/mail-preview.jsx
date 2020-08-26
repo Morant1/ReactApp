@@ -6,20 +6,12 @@ export default class MailPreview extends React.Component {
         subject: '',
         isRead: false,
         body: '',
-        sentAt: Date.now(),
+        sentAt: '',
         isStarred: false,
         author: '',
         isArchived: false
     }
     
-    // formatDate = () => {
-    //     var date = new Date(this.state.sentAt)
-    //     var today = new Date(Date.now())
-    //     // if the e-mail is from today - return the time it was sent
-    //     if (date.toLocaleDateString() === today.toLocaleDateString()) return date.toLocaleTimeString()
-    //     // else - return the date it was sent on
-    //     return date.toLocaleDateString()
-    // }
 
     isMailRead = () => {
         if (this.state.isRead) return 'mail-preview-line mail-preview-read'
