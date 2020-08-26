@@ -1,11 +1,15 @@
-// import React, { Component } from 'react'
+import MailList from '../apps/mail/cmps/mail-list.jsx'
 
-export default class MailApp extends React.Component {
+export default class MailApp extends React.Component { 
+
+
+
     render() {
-        return (
-            <div>
-                <h1>Mail App</h1>
-            </div>
-        )
-    }
+
+        return  (
+            <section className="mail-list-container">Mail
+            <MailList />
+            </section>
+            )
+        }
 }

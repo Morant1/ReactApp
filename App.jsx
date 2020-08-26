@@ -1,5 +1,5 @@
 import Home from './pages/Home.jsx'
-import MailApp from './pages/Mail.jsx'
+import  MailApp from './pages/Mail.jsx'
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
