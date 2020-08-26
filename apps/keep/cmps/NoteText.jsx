@@ -2,9 +2,11 @@
 
 export class NoteText extends React.Component {
     render() {
-        console.log(this.props)
         return (
-            <div className="note note-text">
+        <div className="note-content">
+                <div className="type">
+                <img className="icon"src="apps\keep\assets\icons\text-outline.svg"/>
+                </div>
                 {this.props.list.info.txt}
             </div>
         )
