@@ -19,16 +19,26 @@ export class KeepApp extends React.Component {
         .then ((lists)=>this.setState({lists}))
     }
     
- 
+    removeList = (listId) => {
+        keepService.removeList(listId);
+        this.loadNotes()
+        
+
+    }
+
+    changeColor = (color,id) => {
+        console.log(color,id)
+    }
 
     render() {
         // const booksToShow = this.getBooksForDisplay();
         return (
             <div className="main-container">
-            <AddNotes/>
+            <AddNotes loadNotes={this.loadNotes}/>
             <div className="main-keep-container">
             {this.state.lists.map((list) => {
-                    return <DynamicCmp key={list.id} list={list}/>
+                    return <DynamicCmp key={list.id} list={list} removeList={this.removeList}
+                    changeColor={this.changeColor}/>
                 })}
             </div>
             </div>
