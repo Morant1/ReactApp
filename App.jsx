@@ -1,5 +1,6 @@
 import { Home } from './pages/Home.jsx'
 import { KeepApp } from './apps/keep/KeepApp.jsx'
+import  MailApp from './pages/Mail.jsx'
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
@@ -13,6 +14,9 @@ export class App extends React.Component {
                         <Route component={ KeepApp } path="/keep" />
                         {/* <Route component={ MailApp } path="/mail" />
                         <Route component={ About } path="/about" /> */}
+                        {/* <Route component={ KeepApp } path="/keep" /> */}
+                        <Route component={ MailApp } path="/mail" />
+                        {/* <Route component={ About } path="/about" /> */}
                         <Route component={ Home } path="/" />
                     </Switch>
                 </main>
