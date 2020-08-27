@@ -9,7 +9,6 @@ export class KeepApp extends React.Component {
     
     }
 
-
     componentDidMount() {
         this.loadNotes()
     }
@@ -31,15 +30,26 @@ export class KeepApp extends React.Component {
         this.loadNotes()
     }
 
+    pinnedNote = (id,isPinned) => {
+        let pinned = !isPinned;
+        keepService.setPinned(id,pinned);
+        this.loadNotes();
+
+    }
+    getListsForDisplay() {
+        const lists = this.state.lists;
+        return lists.sort(list => !list.isPinned ? 1 : -1)
+    }
+
     render() {
-        // const booksToShow = this.getBooksForDisplay();
+        const listToShow = this.getListsForDisplay();
         return (
             <div className="main-container">
             <AddNotes loadNotes={this.loadNotes}/>
             <div className="main-keep-container">
-            {this.state.lists.map((list) => {
+            {listToShow.map((list) => {
                     return <DynamicCmp key={list.id} list={list} removeList={this.removeList}
-                    changeColor={this.changeColor}/>
+                    changeColor={this.changeColor} loadNotes={this.loadNotes} pinnedNote={this.pinnedNote}/>
                 })}
             </div>
             </div>

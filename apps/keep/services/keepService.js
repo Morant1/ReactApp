@@ -6,11 +6,31 @@ export const keepService = {
     getNotes,
     addNote,
     removeList,
-    changeBgc
+    changeBgc,
+    editNote,
+    setPinned
 
 }
 let gNotes;
 
+function setPinned(id,pinned) {
+    const noteIdx = _getIdxById(id);
+    gNotes[noteIdx].isPinned = pinned;
+    storageService.saveToStorage(key, gNotes);
+}
+
+function editNote(type,detail,id) {
+    const noteIdx = _getIdxById(id);
+    if (type === "text") gNotes[noteIdx].info.txt = detail;
+    if (type === "img" || type === "video" )gNotes[noteIdx].info.url = detail;
+    if (type === 'todo') {
+        gNotes[noteIdx].info.todos = detail.split(",").map((item) => {
+            return { txt: item }
+        })
+    }
+    storageService.saveToStorage(key, gNotes);
+    
+}
 
 function _getIdxById(noteId) {
     const currNote = gNotes.findIndex(note => note.id === noteId)
@@ -58,20 +78,19 @@ function _createNote(type, detail) {
     if (type === 'text') list.info.txt = detail;
     if (type === 'img') {
         list.info.url = detail;
-        list.info.title = '';
+      
     }
     if (type === 'video') {
         const videoIDIdx = detail.indexOf('=');
         let videoID = detail.slice(videoIDIdx + 1);
         list.info.url = videoID;
-        list.info.title = '';
+     
     }
 
     if (type === 'todo') {
         list.info.todos = detail.split(",").map((item) => {
             return { txt: item }
         })
-        list.info.label = 'add Label'
     }
 
     return list;
@@ -147,10 +166,9 @@ function _createNotes() {
             type: "todo",
             isPinned: false,
             info: {
-                label: "How was it:",
                 todos: [
-                    { txt: "Do that", doneAt: null },
-                    { txt: "Do this", doneAt: 187111111 }
+                    { txt: "Do that" },
+                    { txt: "Do this" }
                 ]},
                 style : {
                     bgc: 'white',
