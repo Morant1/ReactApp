@@ -1,4 +1,3 @@
-
 function on(eventName, listener) {
     const callListener = ({ detail }) => {
         listener(detail)
@@ -14,4 +13,4 @@ function emit(eventName, data) {
 }
 
 
-export default { on, emit }
+export const BusService = { on, emit }

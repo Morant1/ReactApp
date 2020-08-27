@@ -5,6 +5,7 @@ import { MailService } from '../apps/mail/services/mail-service.js'
 import MailDetails from '../apps/mail/cmps/mail-details.jsx'
 import { SideBar } from '../apps/mail/cmps/mail-sidebar.jsx'
 import MailCompose from '../apps/mail/cmps/mail-compose.jsx'
+import {BusService} from '../services/event-bus-service.js'
 
 
 export default class MailApp extends React.Component { 
@@ -134,8 +135,13 @@ export default class MailApp extends React.Component {
     }
     componentDidMount() {
         this.getMailsForDisplay()
+        // BusService.on('searchUpdated',this.onSearch)
+        
     }
     
+    onSearch = (query) => {
+        console.log(query)
+    }
 
     render() {
         if (!this.state.mails) return <div>Loading...</div>
