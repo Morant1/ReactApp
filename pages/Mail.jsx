@@ -104,7 +104,7 @@ export default class MailApp extends React.Component {
     }
     
     onSearch = (searchQuery) => {
-        window.location.replace(`/#/mail/inbox/`)
+        // window.location.replace(`/#/mail/inbox/`)
         this.setState({searchQuery},this.getMailsForDisplay)
     }
 

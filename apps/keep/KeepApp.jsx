@@ -14,6 +14,8 @@ export class KeepApp extends React.Component {
 
     componentDidMount() {
         this.loadNotes()
+        BusService.on('searchUpdated',this.onSetFilter)
+
     }
     
     loadNotes = () => {
@@ -64,7 +66,6 @@ export class KeepApp extends React.Component {
     
     onSetFilter = (filterBy) => {
         this.setState({filterBy});
-     
     }
 
     render() {
