@@ -84,6 +84,7 @@ function _createNote(type, detail) {
         const videoIDIdx = detail.indexOf('=');
         let videoID = detail.slice(videoIDIdx + 1);
         list.info.url = videoID;
+        console.log(list.info.url)
      
     }
 

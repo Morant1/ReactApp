@@ -37,7 +37,7 @@ export class EditNotes extends React.Component {
               src={`https://www.youtube.com/embed/${this.props.list.info.url}?autoplay=1`}>
              </iframe>}
 
-            <textarea rows="5" cols="50" value={this.state.value} onChange={this.onChangeInput}
+            <textarea value={this.state.value} onChange={this.onChangeInput}
              placeholder= {(this.props.list.type === 'img' || this.props.list.type === 'video') ? 'Enter new url' : '' }>
             </textarea>
             <div>
