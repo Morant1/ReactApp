@@ -8,7 +8,7 @@ export class SendNoteToEmail extends React.Component {
 
     render() {
         return (
-            <Link className='book' to={`/mail/compose?body=${this.props.getValueByType()? this.props.getValueByType(): this.props.list.info.url}&subject=${this.props.list.type}`}>
+            <Link className='book' to={`/mail/compose?body=${this.props.getValueByType()? this.props.getValueByType(): this.props.list.info.url}&subject=This is my ${this.props.list.type}`}>
             <img src="apps\keep\assets\icons\send-outline.svg" className="icon"/>
             </Link>
         )

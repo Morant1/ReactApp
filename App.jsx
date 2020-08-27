@@ -1,4 +1,5 @@
 import { Home } from './pages/Home.jsx'
+import { Msg } from './cmps/Msg.jsx'
 import { KeepApp } from './apps/keep/KeepApp.jsx'
 import  MailApp from './pages/Mail.jsx'
 const Router = ReactRouterDOM.HashRouter
@@ -27,7 +28,7 @@ export class App extends React.Component {
                         <Route component={ Home } path="/" />
                     </Switch>
                 </main>
-                {/* <Msg /> */}
+                <Msg />
             </Router>
         )
     }
