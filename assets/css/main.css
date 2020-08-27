@@ -8,6 +8,10 @@ body {
     overflow-x: hidden;
 }
 
+* {
+    transition: 0.3s
+}
+
 .msgBox {
     background-color: rgba(128, 128, 128, 0.336);
     position: absolute;
@@ -20,7 +24,7 @@ body {
 }
 
 header {
-    padding: 5px;
+    padding: 0px 5px;
     display: flex;
     min-height: 3rem;
     justify-content: center;

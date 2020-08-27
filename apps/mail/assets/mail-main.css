@@ -22,7 +22,7 @@
     .mail-sidebar a {
         color: rgb(29, 29, 29);
         text-decoration: none;
-        font-size: 0.875rem;
+        /* font-size: 0.875rem; */
     }
     
     .mail-sidebar a:visited {
@@ -30,9 +30,12 @@
     }
     
     .mail-sidebar-option {
-        padding: 0.3rem 1rem;
+        padding: 0.3rem 2rem;
         display: flex;
         justify-content: space-between;
+        background-position: 0.25rem;
+        background-repeat: no-repeat;
+        line-height: 3rem;
     }
     
     .mail-sidebar-option:hover {
@@ -49,4 +52,59 @@
     
     .active-mail-nav:hover {
         background-color: #fce8e6;
+    }
+    
+    .mail-sidebar-compose {
+        background-image: url(../assets/imgs/add_circle_outline-24px.svg);
+    }
+    
+    .mail-sidebar-inbox {
+        background-image: url(../assets/imgs/inbox-24px.svg);
+    }
+    
+    .mail-sidebar-starred {
+        background-image: url(../assets/imgs/star-24px.svg);
+    }
+    
+    .mail-sidebar-archived {
+        background-image: url(../assets/imgs/archive-24px.svg);
+    }
+    
+    .filter-toolbar {
+        min-height: 2rem;
+        display: flex;
+        padding: 0.25rem 12rem;
+        align-items: center;
+    }
+    
+    .filter-read-unread-container {
+        display: flex;
+        justify-content: space-between;
+        width: 20rem;
+    }
+    
+    .filter-read-unread-container select {
+        border: 0px;
+        min-width: 8rem;
+        height: 1.8rem;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+    
+    @media (max-width: 800px) {
+        .mail-sidebar {
+            min-width: 2rem;
+        }
+        .mail-sidebar a {
+            font-size: 0px;
+            padding: 0.3rem;
+            line-height: 3rem;
+        }
+        .active-mail-nav,
+        .mail-sidebar-option:hover {
+            border-radius: 1rem;
+        }
+        .filter-toolbar {
+            padding: 0.25rem 2rem;
+        }
     }

@@ -67,8 +67,8 @@ export default class MailDetails extends React.Component {
                         <div className="mail-details-buttons">
                             <button className="mail-details-reply" onClick={this.onReply}>Reply</button>
                             <button className="mail-details-archive" onClick={this.onArchive}>Archive</button>
-                            <button className="mail-details-archive" onClick={this.onRemove}>Remove</button>
-                            <button className="mail-details-archive" onClick={this.onUnread}>Unread</button>
+                            <button className="mail-details-remove" onClick={this.onRemove}>Remove</button>
+                            <button className="mail-details-unread" onClick={this.onUnread}>Unread</button>
                             <button className="mail-details-save-note" onClick={this.onSaveAsNote}>Save Note</button>
                         </div>
                     </div>

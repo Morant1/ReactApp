@@ -52,3 +52,45 @@
     display: flex;
     justify-content: space-between;
 }
+
+.mail-details-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.25rem;
+}
+
+.mail-details-buttons button {
+    width: 2rem;
+    height: 2rem;
+    margin: 0px 0.5rem;
+    font-size: 0px;
+    background-color: white;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.mail-details-reply {
+    background-image: url(../assets/imgs/reply-24px.svg);
+}
+
+.mail-details-archive {
+    background-image: url(../assets/imgs/archive-24px.svg);
+}
+
+.mail-details-remove {
+    background-image: url(../assets/imgs/delete-24px.svg);
+}
+
+.mail-details-unread {
+    background-image: url(../assets/imgs/mail_outline-24px.svg);
+}
+
+.mail-details-save-note {
+    background-image: url(../assets/imgs/icon-action-bookmark_border_24px.svg);
+}
+
+
+/* .mail */
