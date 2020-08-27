@@ -1,4 +1,5 @@
 import {BusService} from '../services/event-bus-service.js';
+
 const { Link } = ReactRouterDOM;
 
 export class Msg extends React.Component {

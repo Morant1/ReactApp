@@ -19,11 +19,13 @@ body {
 }
 
 header {
+    padding: 5px;
     display: flex;
     min-height: 3rem;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    box-shadow: -3px 0px 6px 0px #000000c4;
 }
 
 nav {
@@ -66,19 +68,22 @@ nav a:visited {
 }
 
 .global-search input {
-    width: 100%;
+    width: 85%;
     height: 2rem;
     border-radius: 1rem;
-    background-color: #cccccc;
+    background-color: #cccccc99;
     color: rgb(29, 29, 29);
     line-height: 1.8rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border: none;
     padding: 0px 1rem;
+    outline: none;
 }
 
 .active-nav .nav-option-container {
     box-shadow: inset 0px -9px 0px -5px rgba(217, 49, 37, 1);
 }
 
-.logo {}
+.logo {
+    font-size: 1.3rem;
+}

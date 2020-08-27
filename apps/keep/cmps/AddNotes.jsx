@@ -1,5 +1,5 @@
 import { keepService } from "../services/keepService.js";
-import eventBus from '../../../services/event-bus-service.js';
+import {BusService} from '../../../services/event-bus-service.js';
 
 const {withRouter } = ReactRouterDOM
 
@@ -34,7 +34,7 @@ class _AddNotes extends React.Component {
         if (!this.state.text) return;
           keepService.addNote(this.state.type,this.state.text);
           this.props.loadNotes();
-          eventBus.emit('notify', { msg: `Note added`, type: 'success'})
+          BusService.emit('notify', { msg: `Note added`, type: 'success'})
           this.setState({text:'',type:'',isOn: false,placeholder: ''})
     
     }
@@ -43,7 +43,7 @@ class _AddNotes extends React.Component {
         return (
             <div className="input-container">
             <div className="input">
-                 <textarea rows="3" cols="70" placeholder={this.state.placeholder} value={this.state.text} onChange={this.onChangeInput} >
+                 <textarea rows="2" cols="70" placeholder={this.state.placeholder} value={this.state.text} onChange={this.onChangeInput} >
             </textarea>
             <div className="main-icons">
                 <div>
