@@ -1,8 +1,9 @@
 import { keepService } from '../keep/services/keepService.js';
 import { DynamicCmp } from '../keep/cmps/DynamicCmp.jsx';
 import { AddNotes } from '../keep/cmps/AddNotes.jsx';
-import { SearchNotes } from '../keep/cmps/SearchNotes.jsx';
 import {BusService}from '../../services/event-bus-service.js'
+const Router = ReactRouterDOM.HashRouter
+const { Route, Switch } = ReactRouterDOM
 
 export class KeepApp extends React.Component {
 
@@ -72,11 +73,9 @@ export class KeepApp extends React.Component {
         const listToShow = this.getListsForDisplay();
         return (
             <React.Fragment>
-            {/* <div className="search-container">
-                <SearchNotes  filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}/>
-            </div> */}
+                <Router>
             <div className="main-container">
-            <AddNotes loadNotes={this.loadNotes}/>
+            <Route><AddNotes loadNotes={this.loadNotes} exact path="/keep/addNote" searchParams={this.props.location.search}/></Route>
             <div className="main-keep-container">
             {listToShow.map((list) => {
                     return <DynamicCmp key={list.id} list={list} removeList={this.removeList}
@@ -84,9 +83,9 @@ export class KeepApp extends React.Component {
                 })}
             </div>
             </div>
+            </Router>
             </React.Fragment>
         )
     }
 }
-
 
