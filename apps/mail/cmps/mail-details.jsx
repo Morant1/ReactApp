@@ -28,6 +28,7 @@ export default class MailDetails extends React.Component {
 
     render() {
         if (!this.state.mail) return <div>Loading...</div>
+        console.log(this.state.mail)
         return (
             <div>
                 <div className="mail-details-subject">{this.state.mail.subject}</div>
@@ -37,6 +38,9 @@ export default class MailDetails extends React.Component {
                         <div className="mail-details-author-container"><span className="mail-details-author">{this.state.mail.author}</span><span className="mail-details-time">{formatDate(this.state.mail.sentAt)}</span></div>
                         <div className="mail-details-to">to me</div>
                         <div className="mail-details-body">{this.state.mail.body}</div>
+                        <div className="mail-details-buttons">
+                            <button className="mail-details-reply">Reply</button>
+                        </div>
                     </div>
                 </div>
             </div>
