@@ -1,6 +1,8 @@
 import { keepService } from '../keep/services/keepService.js';
 import { DynamicCmp } from '../keep/cmps/DynamicCmp.jsx';
 import { AddNotes } from '../keep/cmps/AddNotes.jsx';
+import { SearchNotes } from '../keep/cmps/SearchNotes.jsx';
+import eventBus from '../../services/event-bus-service.js'
 
 export class KeepApp extends React.Component {
 
@@ -21,6 +23,7 @@ export class KeepApp extends React.Component {
     removeList = (listId) => {
         keepService.removeList(listId);
         this.loadNotes()
+        eventBus.emit('notify', { msg: `Note deleted`, type: 'fail'})
         
 
     }
@@ -44,6 +47,10 @@ export class KeepApp extends React.Component {
     render() {
         const listToShow = this.getListsForDisplay();
         return (
+            <React.Fragment>
+            <div className="search-container">
+                <SearchNotes/>
+            </div>
             <div className="main-container">
             <AddNotes loadNotes={this.loadNotes}/>
             <div className="main-keep-container">
@@ -53,6 +60,7 @@ export class KeepApp extends React.Component {
                 })}
             </div>
             </div>
+            </React.Fragment>
         )
     }
 }

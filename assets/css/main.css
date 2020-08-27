@@ -7,3 +7,15 @@ body {
     margin: 0 auto;
     overflow-x: hidden;
 }
+
+.msgBox {
+
+    background-color: rgba(128, 128, 128, 0.336);
+    position: absolute;
+    left: 15%;
+    display: block;
+    font-weight: 100;
+    border-radius: 21px;
+    transform: translate(-50%,-50%);
+
+}
