@@ -1,5 +1,6 @@
 const { NavLink, withRouter } = ReactRouterDOM
 
+
 function _NavBar(props) {
     function goBack() {
         props.history.goBack()

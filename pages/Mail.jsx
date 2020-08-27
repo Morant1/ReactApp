@@ -135,7 +135,7 @@ export default class MailApp extends React.Component {
     }
     componentDidMount() {
         this.getMailsForDisplay()
-        // BusService.on('searchUpdated',this.onSearch)
+        BusService.on('searchUpdated',this.onSearch)
         
     }
     
