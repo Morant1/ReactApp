@@ -87,9 +87,9 @@ export class DynamicCmp extends React.Component {
                 <img src="apps\keep\assets\icons\color-palette-outline.svg" className="icon"
                 onClick={this.openColorPicker}/>
                  <img src="apps\keep\assets\icons\checkbox-outline.svg" className="icon" onClick={this.isDone}/>
+                <SendNoteToEmail list={this.props.list} getValueByType={this.getValueByType}/>
 
                 {this.state.isColor && <ModalColor openColorPicker={this.openColorPicker} changeColor = {this.props.changeColor} id={this.props.list.id}/>}
-                <SendNoteToEmail list={this.props.list} getValueByType={this.getValueByType}/>
 
                 </div>
             </div>
