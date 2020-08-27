@@ -70,11 +70,54 @@
         background-image: url(../assets/imgs/archive-24px.svg);
     }
     
-    .filter-toolbar {
+    .mail-toolbar {
         min-height: 2rem;
+        padding: 0.25rem 6rem 0.25rem 12rem;
+    }
+    
+    .filter-toolbar {
         display: flex;
-        padding: 0.25rem 12rem;
         align-items: center;
+    }
+    
+    .bulk-action-toolbar {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .bulk-action-toolbar button {
+        width: 2rem;
+        height: 2rem;
+        margin: 0px 0.5rem;
+        font-size: 0px;
+        background-color: white;
+        border: none;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        cursor: pointer;
+    }
+    
+    .bulk-action-archive {
+        background-image: url(../assets/imgs/archive-24px.svg);
+    }
+    
+    .bulk-action-star {
+        background-image: url(../assets/imgs/star-24px.svg);
+    }
+    
+    .bulk-action-remove {
+        background-image: url(../assets/imgs/delete-24px.svg);
+    }
+    
+    .bulk-action-read {
+        background-image: url(../assets/imgs/drafts-24px.svg);
+    }
+    
+    .bulk-action-unread {
+        background-image: url(../assets/imgs/markunread-24px.svg);
     }
     
     .filter-read-unread-container {
@@ -104,7 +147,7 @@
         .mail-sidebar-option:hover {
             border-radius: 1rem;
         }
-        .filter-toolbar {
+        .mail-toolbar {
             padding: 0.25rem 2rem;
         }
     }

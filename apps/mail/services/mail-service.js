@@ -12,16 +12,56 @@ export const MailService = {
     markAsRead,
     markAsUnRead,
     removeMail,
-    getMailsForDisplay
+    getMailsForDisplay,
+    toggleChecked,
+    bulkAction
 }
 
 var templateMails = [
-    { id: 'aeio1', subject: 'WHERE ARE YOU', isRead: false, body: 'I hope you\'re not talking about what we said we won\'t talk about', sentAt: 1598465996748, isStarred: false, author: 'Tyler Durden', isArchived: false, mailAddress: 'tdurden@gmail.com' },
-    { id: utils.makeId(), subject: 'I\'m knocking...', isRead: true, body: '', sentAt: 1593465996448, isStarred: false, author: 'Walter White', isArchived: false, mailAddress: 'heisenberg@gmail.com' },
-    { id: utils.makeId(), subject: 'Noice', isRead: false, body: 'Cool cool cool cool cool cool cool', sentAt: 1598435995748, isStarred: true, author: 'Jake Peralta', isArchived: false, mailAddress: 'jakep@nypd.gov' },
-    { id: utils.makeId(), subject: 'REVENGE!', isRead: false, body: 'My name is Maximus Decimus Meridius, Commander of the Armies of the North, General of the Felix Legions, loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son, husband to a murdered wife. And I will have my vengeance, in this life or the next.', sentAt: 1598465596718, isStarred: true, author: 'Maximus Decimus Meridius', isArchived: false, mailAddress: 'mdm@yahoo.com' }
+    { id: 'aeio1', subject: 'WHERE ARE YOU', isRead: false, body: 'I hope you\'re not talking about what we said we won\'t talk about', sentAt: 1598465996748, isStarred: false, author: 'Tyler Durden', isArchived: false, mailAddress: 'tdurden@gmail.com', isChecked: false },
+    { id: utils.makeId(), subject: 'I\'m knocking...', isRead: true, body: '', sentAt: 1593465996448, isStarred: false, author: 'Walter White', isArchived: false, mailAddress: 'heisenberg@gmail.com', isChecked: false },
+    { id: utils.makeId(), subject: 'Noice', isRead: false, body: 'Cool cool cool cool cool cool cool', sentAt: 1598435995748, isStarred: true, author: 'Jake Peralta', isArchived: false, mailAddress: 'jakep@nypd.gov', isChecked: false },
+    { id: utils.makeId(), subject: 'REVENGE!', isRead: false, body: 'My name is Maximus Decimus Meridius, Commander of the Armies of the North, General of the Felix Legions, loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son, husband to a murdered wife. And I will have my vengeance, in this life or the next.', sentAt: 1598465596718, isStarred: true, author: 'Maximus Decimus Meridius', isArchived: false, mailAddress: 'mdm@yahoo.com', isChecked: false }
 ]
 
+function bulkAction(action) {
+    return new Promise(resolve => {
+
+        var fn;
+        switch (action) {
+            case 'archive':
+                fn = toggleArchived
+                break;
+            case 'star':
+                fn = toggleStar
+                break;
+            case 'remove':
+                fn = removeMail
+                break;
+            case 'read':
+                fn = markAsRead
+                break;
+            case 'unread':
+                fn = markAsUnRead
+                break;
+        }
+        console.log(action)
+        getAllMails().then(allMails => {
+            var checkedMails = allMails.filter(mail => mail.isChecked)
+            recursiveChangeStatus(checkedMails, fn).then(setTimeout(() => { resolve('done') }, 100))
+
+        })
+    })
+
+}
+
+function recursiveChangeStatus(mails, fn, i = 0) {
+    return new Promise((resolve, reject) => {
+        if (i >= mails.length) return resolve('done')
+        fn(mails[i].id).then(res => recursiveChangeStatus(mails, fn, i + 1))
+    })
+
+}
 
 function addMail(subject, body, author = 'Keyser Söze', mailAddress = 'me@appsusmail.com') {
     return getAllMails().then(
@@ -35,7 +75,8 @@ function addMail(subject, body, author = 'Keyser Söze', mailAddress = 'me@appsu
                 isStarred: false,
                 author,
                 isArchived: false,
-                mailAddress
+                mailAddress,
+                isChecked: false
             }
             mails.push(newMail)
             storageService.saveToStorage('mailsList', mails)
@@ -111,12 +152,15 @@ function filterReadAndUnread(mails, filter) {
     }
 }
 
-
+function toggleChecked(id) {
+    return new Promise(resolve => {
+        toggleStatus('isChecked', id).then(res => resolve())
+    })
+}
 
 function toggleStar(id) {
     return new Promise(resolve => {
-        toggleStatus('isStarred', id)
-        resolve()
+        toggleStatus('isStarred', id).then(res => resolve())
     })
 }
 
@@ -171,6 +215,7 @@ function toggleStatus(status, id) {
             .then(mails => {
                 var currMailIdx = mails.findIndex(mail => mail.id === id)
                 var currMail = mails[currMailIdx]
+
                 if (currMail[status]) {
                     currMail[status] = false
                 } else {

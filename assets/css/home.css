@@ -14,7 +14,7 @@ main {
     transform: translate(-50%, -50%)
 }
 
-.position-img{
+.position-img {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,20 +22,21 @@ main {
     position: absolute;
     top: 40%;
     left: 50%;
-    width:100%;
+    width: 100%;
     transform: translate(-50%, -50%);
 }
 
-
 .home-title {
     text-align: center;
-    font-size:2rem;
+    font-size: 2rem;
     margin-bottom: 10px;
     color: #2b2424ed;
 }
-img {
+
+.home-container img {
     width: 150%;
 }
+
 .imgs .img-home {
     width: 40px;
     background-color: #00000014;
@@ -43,12 +44,11 @@ img {
     margin: 2px;
     padding: 4px;
     border-radius: 10px;
-
 }
 
 @media (max-width: 740px) {
     .home-title {
-        font-size:1rem;
+        font-size: 1rem;
     }
 }
 
@@ -56,19 +56,15 @@ img {
     .imgs .img-home {
         width: 30px;
         height: 30px;
-
-    
     }
 }
 
 @media (max-width: 340px) {
     .home-title {
-        font-size:0.8rem;
+        font-size: 0.8rem;
     }
     .imgs .img-home {
         width: 20px;
         height: 20px;
-
-    
     }
 }

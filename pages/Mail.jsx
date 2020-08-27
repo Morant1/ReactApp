@@ -6,7 +6,7 @@ import MailDetails from '../apps/mail/cmps/mail-details.jsx'
 import { SideBar } from '../apps/mail/cmps/mail-sidebar.jsx'
 import MailCompose from '../apps/mail/cmps/mail-compose.jsx'
 import {BusService} from '../services/event-bus-service.js'
-import { Toolbar } from '../apps/mail/cmps/toolbar-cmp.jsx'
+import { Toolbar } from '../apps/mail/cmps/toolbar-dynamic-cmp.jsx'
 
 export default class MailApp extends React.Component { 
 
@@ -17,9 +17,14 @@ export default class MailApp extends React.Component {
         unreadMails: 0,
         onlyDisplayReadOrUnread: '',
         searchQuery: '',
-        selectedMails: []
+        isMailsChecked: false
     }
 
+    bulkAction = (action) => {
+        var a = MailService.bulkAction(action)
+        a.then(() => {this.getMailsForDisplay()})
+       
+    }
 
 
     getQueryParams = () => {
@@ -62,6 +67,17 @@ export default class MailApp extends React.Component {
         MailService.toggleArchived(id).then(res => this.getMailsForDisplay())
     }
 
+    toggleChecked = (id) => {
+        MailService.toggleChecked(id).then(res => {
+            this.getMailsForDisplay()})
+    }
+
+    checkIfMailsChecked = () => {
+        var isMailsChecked = (this.state.mails.some(mail => {
+            return mail.isChecked}))
+        this.setState({isMailsChecked})
+    }
+
 
     sumUnread(mails) {
         var totalUnread = 0
@@ -73,7 +89,6 @@ export default class MailApp extends React.Component {
 
 
     onSendMail = (mail) => {
-        console.log(mail)
         MailService.addMail(mail.subject,mail.body)
         .then(res => {
             this.getMailsForDisplay()
@@ -82,19 +97,17 @@ export default class MailApp extends React.Component {
     }
 
     getMailsForDisplay = () => {
-    
         var filters = {
             sortBy: this.state.sortBy,
             filterBy: this.state.filterBy,
             filterReadAndUnread: this.state.onlyDisplayReadOrUnread,
             searchQuery: this.state.searchQuery
         }
-        MailService.getMailsForDisplay(filters)
-        .then(mails => {
-            
-            this.setState({mails})})
         
-}
+            MailService.getMailsForDisplay(filters)
+                .then(mails => {
+                    (this.setState({mails}),this.checkIfMailsChecked()) 
+})}
 
 
     componentDidMount() {
@@ -112,13 +125,13 @@ export default class MailApp extends React.Component {
         if (!this.state.mails) return <div>Loading...</div>
         return  (
             <section>
-            <Toolbar selectedMails={this.state.selectedMails}/>
+            <Toolbar selectedMails={this.state.isMailsChecked} bulkAction={this.bulkAction}/>
             <div className="mail-main-container">
             <SideBar unreadMails={this.state.unreadMails}/>
             <Switch>
             {/* <Route component={MailCompose} exact path="mail/compose" /> */}
             <Route  component={MailList} exact path="/mail/:filterBy">
-                <MailList mails={this.state.mails} starFn={this.onToggleStar} readFn={this.onRead} removeFn={this.onRemove} archiveFn={this.onArchive}/>
+                <MailList mails={this.state.mails} checkFn={this.toggleChecked} starFn={this.onToggleStar} readFn={this.onRead} removeFn={this.onRemove} archiveFn={this.onArchive}/>
                 <Route component={() => <MailCompose sendFn={this.onSendMail} searchParams={this.props.location.search} />} exact path="/mail/compose" />
             </Route>
             <Route  component={MailDetails} exact path="/mail/inbox/:mailId" />

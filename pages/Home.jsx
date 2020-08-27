@@ -1,3 +1,5 @@
+const { Link } = ReactRouterDOM;
+
 export class Home extends React.Component {
 
     render() {
@@ -6,9 +8,9 @@ export class Home extends React.Component {
                 <div className="position-img">
                 <div className="home-title">Welcome to AppSuS</div>
                 <div className="imgs">
-                    <img  className="img-home"src="assets\img\book.jpg"/>
-                    <img className="img-home" src="assets\img\gmail.png"/>
-                    <img className="img-home" src="assets\img\keep.jpg"/>
+                    <Link to="/books"><img  className="img-home"src="assets\img\book.jpg"/></Link>
+                    <Link to="/mail/inbox"><img className="img-home" src="assets\img\gmail.png"/></Link>
+                    <Link to="/keep"><img className="img-home" src="assets\img\keep.jpg"/></Link>
                     </div>
                     </div>
                     <img className="main-img-container" src="assets\img\background.jpg"/>
