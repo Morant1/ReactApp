@@ -100,13 +100,12 @@ function toggleStatus(status, id) {
 }
 
 function getAllMails() {
-    console.log(storageService)
     var mails = storageService.loadFromStorage('mailsList')
     if (!mails) {
         storageService.saveToStorage('mailsList', templateMails)
         mails = templateMails
     }
-    console.log('getting mails', mails)
+    // console.log('getting mails', mails)
     return Promise.resolve(mails)
 }
 

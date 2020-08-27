@@ -11,7 +11,7 @@ function _NavBar(props) {
     }
     return (
         <nav className="mail-sidebar">
-            <NavLink exact activeClassName='active-mail-nav' className="mail-sidebar-option" to="/compose">Compose</NavLink>
+            <NavLink exact activeClassName='active-mail-nav' className="mail-sidebar-option" to="/mail/compose">Compose</NavLink>
             <NavLink activeClassName='active-mail-nav' className="mail-sidebar-option" to="/mail/inbox">Inbox {displayUnreadMails()}</NavLink>
             <NavLink activeClassName='active-mail-nav' className="mail-sidebar-option" to="/mail/starred">Starred</NavLink>
             <NavLink activeClassName='active-mail-nav' className="mail-sidebar-option" to="/mail/archived">Archived</NavLink>

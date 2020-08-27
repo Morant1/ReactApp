@@ -21,7 +21,7 @@ export default class MailApp extends React.Component {
     getQueryParams = () => {
         const search = this.props.location.search;
         const params = new URLSearchParams(search);
-        const sortBy = params.get('sortBy');
+        const sortBy = params.get('sortby');
         if (sortBy) this.setState({sortBy})
         const filterOnlyRead = params.get('onlyread')
         if (filterOnlyRead) this.setState({onlyDisplayReadOrUnread:filterOnlyRead})
@@ -69,10 +69,8 @@ export default class MailApp extends React.Component {
 
     sortMails(mails,sortBy) {
         if (sortBy === 'date') {
-            console.log('sorting by date')
             return mails.sort((a,b) => b.sentAt - a.sentAt)
         } else {
-            console.log('sorting by name')
             return mails.sort((a,b) => {
                     if ( a.author < b.author ){
                       return -1;
@@ -128,7 +126,6 @@ export default class MailApp extends React.Component {
         .then(allMails => {
             var mails = this.filterStarredAndArchived(allMails)
             mails = this.filterReadAndUnread(mails)
-            console.log(mails)
             mails = this.sortMails(mails,this.state.sortBy)
             const unreadMails = this.sumUnread(mails)
             this.setState({mails,unreadMails})
@@ -148,12 +145,10 @@ export default class MailApp extends React.Component {
             <Switch>
             {/* <Route component={MailCompose} exact path="mail/compose" /> */}
             <Route  component={MailList} exact path="/mail/:filterBy">
-            <MailList mails={this.state.mails} starFn={this.onToggleStar} readFn={this.onRead} removeFn={this.onRemove} archiveFn={this.onArchive}/>
-            <Route component={() => <MailCompose sendFn={this.onSendMail} searchParams={this.props.location.search} />} exact path="/mail/compose" />
+                <MailList mails={this.state.mails} starFn={this.onToggleStar} readFn={this.onRead} removeFn={this.onRemove} archiveFn={this.onArchive}/>
+                <Route component={() => <MailCompose sendFn={this.onSendMail} searchParams={this.props.location.search} />} exact path="/mail/compose" />
             </Route>
             <Route  component={MailDetails} exact path="/mail/inbox/:mailId" />
-            
-
             </Switch>
             </section>
             )
