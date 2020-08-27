@@ -3,16 +3,24 @@
 @import '../../apps/mail/assets/mail-details.css';
 @import '../../apps/mail/assets/mail-list.css';
 @import '../../apps/mail/assets/mail-compose.css';
+@import './home.css';
+
+html {
+    font-size: 16px;
+}
+
 body {
     margin: 0 auto;
+    height:100vh;
     overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
 .msgBox {
     background-color: rgba(128, 128, 128, 0.336);
     position: absolute;
-    left: 18%;
-    top: 14.5%;
+    left: 50%;
+    top: 40%;
     display: block;
     font-weight: 100;
     border-radius: 21px;
@@ -75,7 +83,7 @@ header nav a:visited {
     background-color: #cccccc99;
     color: rgb(29, 29, 29);
     line-height: 1.8rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: none;
     padding: 0px 1rem;
     outline: none;

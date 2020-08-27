@@ -254,7 +254,9 @@ textarea {
         font-size: 18px;
     }
 
-  
+    .main-icons {
+        width:38%;
+    }
 
     textarea {
         font-size: 20px;
