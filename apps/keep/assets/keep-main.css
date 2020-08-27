@@ -107,6 +107,11 @@
  opacity: 0.4;
 }
 
+.pinned {
+    box-shadow: 1px -1px 9px 2px black;
+}
+
+
 .type {
     display: flex;
     justify-content: space-between;
@@ -115,6 +120,8 @@
 .type img {
     opacity: 0.3;
 }
+
+
 
 /* COLOR PICKER */
 
@@ -166,4 +173,21 @@
 
 .picker-white{
     background-color: white;
+}
+
+/* Edit */
+
+.edit-note {
+    grid-column:span 2; 
+    border-radius: 21px;
+    border: 2px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit-note textarea {
+    border-color: white;
+    text-align: center;
 }
