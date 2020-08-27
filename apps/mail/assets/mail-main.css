@@ -16,7 +16,7 @@
     .mail-sidebar {
         display: flex;
         flex-direction: column;
-        min-width: 8rem;
+        min-width: 12rem;
     }
     
     .mail-sidebar a {
