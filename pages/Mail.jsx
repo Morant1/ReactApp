@@ -15,7 +15,8 @@ export default class MailApp extends React.Component {
         filterBy:'inbox',
         sortBy:'',
         unreadMails: 0,
-        onlyDisplayReadOrUnread: ''
+        onlyDisplayReadOrUnread: '',
+        searchQuery: ''
     }
 
 
@@ -84,7 +85,8 @@ export default class MailApp extends React.Component {
         var filters = {
             sortBy: this.state.sortBy,
             filterBy: this.state.filterBy,
-            filterReadAndUnread: this.state.onlyDisplayReadOrUnread
+            filterReadAndUnread: this.state.onlyDisplayReadOrUnread,
+            searchQuery: this.state.searchQuery
         }
         console.log(this.state)
         MailService.getMailsForDisplay(filters)
@@ -101,8 +103,9 @@ export default class MailApp extends React.Component {
         
     }
     
-    onSearch = (query) => {
-        console.log(query)
+    onSearch = (searchQuery) => {
+        window.location.replace(`/#/mail/inbox/`)
+        this.setState({searchQuery},this.getMailsForDisplay)
     }
 
     render() {
