@@ -89,10 +89,9 @@ export default class MailApp extends React.Component {
             filterReadAndUnread: this.state.onlyDisplayReadOrUnread,
             searchQuery: this.state.searchQuery
         }
-        console.log(this.state)
         MailService.getMailsForDisplay(filters)
         .then(mails => {
-            console.log(mails)
+            
             this.setState({mails})})
         
 }

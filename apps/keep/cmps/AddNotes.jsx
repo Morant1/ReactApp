@@ -17,6 +17,7 @@ class _AddNotes extends React.Component {
             this.updateFromQueryString()
         }
     }
+ 
     
     updateFromQueryString = () => {
         const search = this.props.searchParams;

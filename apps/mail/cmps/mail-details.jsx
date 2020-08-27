@@ -43,6 +43,10 @@ export default class MailDetails extends React.Component {
         window.location.replace('/#/mail/inbox')
     }
 
+    onSaveAsNote = () => {
+        window.location.replace(`#/keep/addnote?text=${this.state.mail.body}`)
+    }
+
     componentDidMount() {
         this.loadMail()
     }
@@ -65,6 +69,7 @@ export default class MailDetails extends React.Component {
                             <button className="mail-details-archive" onClick={this.onArchive}>Archive</button>
                             <button className="mail-details-archive" onClick={this.onRemove}>Remove</button>
                             <button className="mail-details-archive" onClick={this.onUnread}>Unread</button>
+                            <button className="mail-details-save-note" onClick={this.onSaveAsNote}>Save Note</button>
                         </div>
                     </div>
                 </div>
