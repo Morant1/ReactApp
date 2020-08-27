@@ -2,6 +2,7 @@
 @import '../../apps/mail/assets/mail-main.css';
 @import '../../apps/mail/assets/mail-details.css';
 @import '../../apps/mail/assets/mail-list.css';
+@import '../../apps/mail/assets/mail-compose.css';
 body {
     margin: 0 auto;
     overflow-x: hidden;

@@ -13,7 +13,6 @@ export const MailService = {
     removeMail
 }
 
-
 var templateMails = [
     { id: 'aeio1', subject: 'WHERE ARE YOU', isRead: false, body: 'I hope you\'re not talking about what we said we won\'t talk about', sentAt: 1598465996748, isStarred: false, author: 'Tyler Durden', isArchived: false, mailAddress: 'tdurden@gmail.com' },
     { id: utils.makeId(), subject: 'I\'m knocking...', isRead: true, body: '', sentAt: 1593465996448, isStarred: false, author: 'Walter White', isArchived: false, mailAddress: 'heisenberg@gmail.com' },
@@ -23,7 +22,8 @@ var templateMails = [
 
 
 function addMail(subject, body, author = 'Keyser Söze', mailAddress = 'me@appsusmail.com') {
-    getAllMails().then(
+
+    return getAllMails().then(
         mails => {
             const newMail = {
                 id: utils.makeId(),

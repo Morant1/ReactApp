@@ -4,6 +4,7 @@ import MailList from '../apps/mail/cmps/mail-list.jsx'
 import { MailService } from '../apps/mail/services/mail-service.js'
 import MailDetails from '../apps/mail/cmps/mail-details.jsx'
 import { SideBar } from '../apps/mail/cmps/mail-sidebar.jsx'
+import MailCompose from '../apps/mail/cmps/mail-compose.jsx'
 
 
 export default class MailApp extends React.Component { 
@@ -46,7 +47,7 @@ export default class MailApp extends React.Component {
 
     onRead = (id) => {
         MailService.markAsRead(id).then(res => this.getMailsForDisplay())
-        window.location.replace(`/sprint3/#/mail/inbox/${id}`)
+        window.location.replace(`/#/mail/inbox/${id}`)
     }
 
     onRemove = (id) => {
@@ -113,7 +114,14 @@ export default class MailApp extends React.Component {
             }
     }
 
-
+    onSendMail = (mail) => {
+        console.log(mail)
+        MailService.addMail(mail.subject,mail.body)
+        .then(res => {
+            this.getMailsForDisplay()
+            window.location.replace(`/#/mail/inbox/`)
+        })
+    }
 
     getMailsForDisplay =() => {
         MailService.getAllMails()
@@ -138,12 +146,12 @@ export default class MailApp extends React.Component {
             <section className="mail-main-container">
             <SideBar unreadMails={this.state.unreadMails}/>
             <Switch>
+            {/* <Route component={MailCompose} exact path="mail/compose" /> */}
             <Route  component={MailList} exact path="/mail/:filterBy">
             <MailList mails={this.state.mails} starFn={this.onToggleStar} readFn={this.onRead} removeFn={this.onRemove} archiveFn={this.onArchive}/>
+            <Route component={() => <MailCompose sendFn={this.onSendMail} searchParams={this.props.location.search} />} exact path="/mail/compose" />
             </Route>
             <Route  component={MailDetails} exact path="/mail/inbox/:mailId" />
-            
-            {/* <Route component={ MailList } path="/mail/inbox"> */}
             
 
             </Switch>
