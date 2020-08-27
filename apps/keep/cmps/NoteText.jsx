@@ -1,7 +1,10 @@
-
+import {LongTxt} from './LongTxt.jsx'
 
 export class NoteText extends React.Component {
+
+    
     render() {
+
         return (
         <div className="note-content">
                 <div className="type">
@@ -9,10 +12,13 @@ export class NoteText extends React.Component {
                 onClick={()=>{this.props.pinnedNote(this.props.list.id,this.props.list.isPinned)}}/>
                 <img className="icon"src="apps\keep\assets\icons\text-outline.svg"/>
                 </div>
-                {this.props.list.info.txt}
+                <div className="text-input">
+                    <LongTxt txt = {this.props.list.info.txt}/>
+                </div>
             </div>
         )
     }
 }
+
 
 
