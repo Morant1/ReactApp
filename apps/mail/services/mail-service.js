@@ -10,7 +10,8 @@ export const MailService = {
     toggleStar,
     toggleArchived,
     markAsRead,
-    removeMail
+    removeMail,
+    getMailsForDisplay
 }
 
 var templateMails = [
@@ -22,7 +23,6 @@ var templateMails = [
 
 
 function addMail(subject, body, author = 'Keyser Söze', mailAddress = 'me@appsusmail.com') {
-
     return getAllMails().then(
         mails => {
             const newMail = {
@@ -42,6 +42,67 @@ function addMail(subject, body, author = 'Keyser Söze', mailAddress = 'me@appsu
         }
     )
 }
+
+function getMailsForDisplay(filters) {
+    return new Promise(resolve => {
+        getAllMails()
+            .then(allMails => {
+                var mails = filterStarredAndArchived(allMails, filters.filterBy)
+                mails = sortMails(mails, filters.sortBy)
+                if (filters.filterReadAndUnread) {
+                    mails = filterReadAndUnread(mails, filters.filterReadAndUnread)
+                }
+                return resolve(mails)
+            })
+    })
+}
+
+function sortMails(mails, sortBy = "date") {
+    if (sortBy === 'date') {
+        return mails.sort((a, b) => b.sentAt - a.sentAt)
+    } else {
+        return mails.sort((a, b) => {
+            if (a.author < b.author) {
+                return -1;
+            }
+            if (a.author > b.author) {
+                return 1;
+            }
+            return 0;
+        })
+    }
+}
+
+function filterStarredAndArchived(mails, filterBy) {
+    switch (filterBy) {
+        case 'starred':
+            return mails.filter(mail => mail.isStarred === true)
+
+        case 'archived':
+            return mails.filter(mail => mail.isArchived === true)
+
+        default: //also acts as inbox
+            return mails.filter(mail => mail.isArchived === false)
+
+    }
+}
+
+function filterReadAndUnread(mails, filter) {
+    switch (filter) {
+
+        case 'onlyread':
+            return mails.filter(mail => mail.isRead === true)
+
+        case 'onlyunread':
+            return mails.filter(mail => mail.isRead === false)
+
+        default: //also acts as inbox
+            return mails
+
+    }
+}
+
+
 
 function toggleStar(id) {
     return new Promise(resolve => {

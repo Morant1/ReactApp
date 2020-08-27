@@ -8,11 +8,11 @@ function _NavBar(props) {
     return (
         <nav>
             {/* <button onClick={ goBack }>Back</button> */}
-            <NavLink exact activeClassName='active-nav' to="/">Home</NavLink>
-            <NavLink to="/mail/inbox" activeClassName='active-nav'>Mail</NavLink>
-            <NavLink to="/keep" activeClassName='active-nav'>Keep</NavLink>
-            <NavLink to="/book" activeClassName='active-nav'>Books</NavLink>
-            <NavLink to="/about" activeClassName='active-nav'>About</NavLink>
+            <NavLink exact activeClassName='active-nav' to="/"><div className="nav-option-container">Home</div></NavLink>
+            <NavLink to="/mail/inbox" activeClassName='active-nav'><div className="nav-option-container">Mail</div></NavLink>
+            <NavLink to="/keep" activeClassName='active-nav' ><div className="nav-option-container">Keep</div></NavLink>
+            <NavLink to="/book" activeClassName='active-nav'><div className="nav-option-container">Books</div></NavLink>
+            <NavLink to="/about" activeClassName='active-nav'><div className="nav-option-container">About</div></NavLink>
         </nav>
     )
 }

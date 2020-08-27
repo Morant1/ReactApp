@@ -19,22 +19,23 @@ export default class MailApp extends React.Component {
     }
 
 
+
     getQueryParams = () => {
         const search = this.props.location.search;
         const params = new URLSearchParams(search);
         const sortBy = params.get('sortby');
-        if (sortBy) this.setState({sortBy})
+        if (sortBy) this.setState({sortBy},this.getMailsForDisplay)
         const filterOnlyRead = params.get('onlyread')
-        if (filterOnlyRead) this.setState({onlyDisplayReadOrUnread:filterOnlyRead})
-        this.getMailsForDisplay()
+        if (filterOnlyRead) this.setState({onlyDisplayReadOrUnread:filterOnlyRead},this.getMailsForDisplay)
+        // this.getMailsForDisplay()
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.location.pathname !== this.props.location.pathname) {
             const regex = /\/mail\/(.*?)/
             const filterString = this.props.location.pathname.replace(regex,'')
-                this.setState({filterBy:filterString})
-                this.getMailsForDisplay()
+                this.setState({filterBy:filterString},this.getMailsForDisplay)
+                
             }
         if (prevProps.location.search !== this.props.location.search) {
                 this.getQueryParams()
@@ -68,50 +69,6 @@ export default class MailApp extends React.Component {
         return totalUnread
     }
 
-    sortMails(mails,sortBy) {
-        if (sortBy === 'date') {
-            return mails.sort((a,b) => b.sentAt - a.sentAt)
-        } else {
-            return mails.sort((a,b) => {
-                    if ( a.author < b.author ){
-                      return -1;
-                    }
-                    if ( a.author > b.author ){
-                      return 1;
-                    }
-                    return 0;
-                  })
-            }
-        }
-    
-        filterStarredAndArchived = (mails) => {
-            switch (this.state.filterBy) {
-                case 'starred':
-                    return mails.filter(mail => mail.isStarred === true)
-                    
-                case 'archived':
-                    return mails.filter(mail => mail.isArchived === true)
-                
-                default: //also acts as inbox
-                    return mails.filter(mail => mail.isArchived === false)
-
-            }
-        }
-
-        filterReadAndUnread = (mails) => {
-            switch (this.state.onlyDisplayReadOrUnread) {
-
-                case 'onlyread':
-                    return mails.filter(mail => mail.isRead === true)
-                    
-                case 'onlyunread':
-                    return mails.filter(mail => mail.isRead === false)
-                
-                default: //also acts as inbox
-                    return mails
-
-            }
-    }
 
     onSendMail = (mail) => {
         console.log(mail)
@@ -122,17 +79,22 @@ export default class MailApp extends React.Component {
         })
     }
 
-    getMailsForDisplay =() => {
-        MailService.getAllMails()
-        .then(allMails => {
-            var mails = this.filterStarredAndArchived(allMails)
-            mails = this.filterReadAndUnread(mails)
-            mails = this.sortMails(mails,this.state.sortBy)
-            const unreadMails = this.sumUnread(mails)
-            this.setState({mails,unreadMails})
+    getMailsForDisplay = () => {
+    
+        var filters = {
+            sortBy: this.state.sortBy,
+            filterBy: this.state.filterBy,
+            filterReadAndUnread: this.state.onlyDisplayReadOrUnread
+        }
+        console.log(this.state)
+        MailService.getMailsForDisplay(filters)
+        .then(mails => {
+            console.log(mails)
+            this.setState({mails})})
+        
+}
 
-        })
-    }
+
     componentDidMount() {
         this.getMailsForDisplay()
         BusService.on('searchUpdated',this.onSearch)
