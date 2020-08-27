@@ -10,6 +10,7 @@ export const MailService = {
     toggleStar,
     toggleArchived,
     markAsRead,
+    markAsUnRead,
     removeMail,
     getMailsForDisplay
 }
@@ -133,6 +134,19 @@ function markAsRead(id) {
             .then(mails => {
                 var currMail = mails.find(mail => mail.id === id)
                 currMail.isRead = true
+                storageService.saveToStorage('mailsList', mails)
+                return resolve()
+            })
+    })
+}
+
+
+function markAsUnRead(id) {
+    return new Promise(resolve => {
+        getAllMails()
+            .then(mails => {
+                var currMail = mails.find(mail => mail.id === id)
+                currMail.isRead = false
                 storageService.saveToStorage('mailsList', mails)
                 return resolve()
             })

@@ -26,7 +26,21 @@ export default class MailDetails extends React.Component {
         const recipient = this.state.mail.author
         const body = this.state.mail.body
         window.location.replace(`/#/mail/compose?body=${body}&recipient=${recipient}&subject=${subject}`)
+    }
 
+    onArchive = () => {
+        MailService.toggleArchived(this.state.mail.id)
+        window.location.replace('/#/mail/inbox')
+    }
+
+    onRemove = () => {
+        MailService.removeMail(this.state.mail.id)
+        window.location.replace('/#/mail/inbox')
+    }
+
+    onUnread = () => {
+        MailService.markAsUnRead(this.state.mail.id)
+        window.location.replace('/#/mail/inbox')
     }
 
     componentDidMount() {
@@ -48,6 +62,9 @@ export default class MailDetails extends React.Component {
                         <div className="mail-details-body">{this.state.mail.body}</div>
                         <div className="mail-details-buttons">
                             <button className="mail-details-reply" onClick={this.onReply}>Reply</button>
+                            <button className="mail-details-archive" onClick={this.onArchive}>Archive</button>
+                            <button className="mail-details-archive" onClick={this.onRemove}>Remove</button>
+                            <button className="mail-details-archive" onClick={this.onUnread}>Unread</button>
                         </div>
                     </div>
                 </div>

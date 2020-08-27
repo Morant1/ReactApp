@@ -6,7 +6,7 @@ import MailDetails from '../apps/mail/cmps/mail-details.jsx'
 import { SideBar } from '../apps/mail/cmps/mail-sidebar.jsx'
 import MailCompose from '../apps/mail/cmps/mail-compose.jsx'
 import {BusService} from '../services/event-bus-service.js'
-
+import { Toolbar } from '../apps/mail/cmps/toolbar-cmp.jsx'
 
 export default class MailApp extends React.Component { 
 
@@ -16,7 +16,8 @@ export default class MailApp extends React.Component {
         sortBy:'',
         unreadMails: 0,
         onlyDisplayReadOrUnread: '',
-        searchQuery: ''
+        searchQuery: '',
+        selectedMails: []
     }
 
 
@@ -111,7 +112,9 @@ export default class MailApp extends React.Component {
     render() {
         if (!this.state.mails) return <div>Loading...</div>
         return  (
-            <section className="mail-main-container">
+            <section>
+            <Toolbar selectedMails={this.state.selectedMails}/>
+            <div className="mail-main-container">
             <SideBar unreadMails={this.state.unreadMails}/>
             <Switch>
             {/* <Route component={MailCompose} exact path="mail/compose" /> */}
@@ -121,6 +124,7 @@ export default class MailApp extends React.Component {
             </Route>
             <Route  component={MailDetails} exact path="/mail/inbox/:mailId" />
             </Switch>
+            </div>
             </section>
             )
         }
