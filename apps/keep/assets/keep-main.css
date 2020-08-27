@@ -29,7 +29,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
 }
 .note-content {
@@ -64,17 +64,15 @@
 
 /* INPUT */
 .input-container {
-    display: flex;
     padding:5px;
-    flex-direction: column;
     border-radius: 21px;
     border: 2px solid #e0e0e0;
-    justify-content: center;
     margin-bottom: 20px;
 }
 
 .input {
-   
+   display: flex;
+   width:100%;
 
 }
 
@@ -88,16 +86,31 @@
 }
 
 /* ICON */
-
+.main-icons {
+    background-color: #0000000a;
+    padding-top: 5px;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    border-radius: 21px;
+    width: 30%;
+    text-align: center;
+}
 .icon {
+    margin:3px;
     width:30px;
     height: 30px;
+    transition: opacity .3s;
+}
+
+.icon:hover {
+ opacity: 0.4;
 }
 
 .type {
-    width: 100%;
-    text-align: left;
-    margin-left:10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
 }
 .type img {
     opacity: 0.3;
@@ -107,38 +120,50 @@
 
 .color-picker {
     border: 2px solid #e0e0e0;
-    width: 200px;
+    width: 250px;
     background-color: white;
     display: flex;
     position: relative;
     border-radius: 21px;
     top: -40px;
+    
 }
 
 .picker {
+    border: 1px solid #e0e0e0;
     width:25px;
     height:25px;
     border-radius: 50%;
-    margin:5px
+    margin:5px;
+    cursor: pointer;
+    transition: opacity .3s;
+}
+
+.picker:hover {
+    opacity: 0.4;
 }
 
 .picker-green {
-    background-color: green;
+    background-color: rgb(66, 173, 66);
 }
 .picker-pink{
-    background-color: pink;
+    background-color: rgb(197, 114, 129);
 }
 .picker-red {
-    background-color: red;
+    background-color: rgb(223, 112, 112);
 }
 
 .picker-yellow {
-    background-color: yellow;
+    background-color: rgb(216, 216, 81);
 }
 .picker-blue {
-    background-color: blue;
+    background-color: rgb(65, 65, 206);
 }
 
 .picker-purple {
-    background-color: purple;
+    background-color: rgb(173, 79, 173);
+}
+
+.picker-white{
+    background-color: white;
 }

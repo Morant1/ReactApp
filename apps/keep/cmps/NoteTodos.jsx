@@ -5,6 +5,7 @@ export class NoteTodos extends React.Component {
         return (
             <div className="note-content">
                 <div className="type">
+                <img src="apps\keep\assets\icons\thumbtack-solid.svg" className="icon"/>
                     <img className="icon" src="apps\keep\assets\icons\list-outline.svg" />
                 </div>
                 <h3>{this.props.list.info.label}</h3>

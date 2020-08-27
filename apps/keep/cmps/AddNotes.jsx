@@ -42,12 +42,16 @@ export class AddNotes extends React.Component {
             <div className="input">
                  <textarea rows="3" cols="70" placeholder={this.state.placeholder} value={this.state.text} onChange={this.onChangeInput} >
             </textarea>
-            <div className="icons">
+            <div className="main-icons">
+                <div>
             <img onClick={()=>{this.addType("text")}}className="icon"src="apps\keep\assets\icons\text-outline.svg"/>
             <img onClick={()=>{this.addType("img")}}className="icon"src="apps\keep\assets\icons\image-outline.svg"/> 
             <img onClick={()=>{this.addType("todo")}}className="icon"src="apps\keep\assets\icons\list-outline.svg"/>
             <img onClick={()=>{this.addType("video")}}className="icon"src="apps\keep\assets\icons\videocam-outline.svg"/>
+            </div>
+            <div className="add-icon">
             <img onClick={this.onSubmit} className="icon"src="apps\keep\assets\icons\add-circle-outline.svg"/>
+            </div>
             </div>
             </div>
             </div>

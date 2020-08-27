@@ -27,7 +27,8 @@ export class KeepApp extends React.Component {
     }
 
     changeColor = (color,id) => {
-        console.log(color,id)
+        keepService.changeBgc(color,id);
+        this.loadNotes()
     }
 
     render() {

@@ -4,5 +4,5 @@
 @import '../../apps/mail/assets/mail-list.css';
 body {
     margin: 0 auto;
-    overflow: hidden;
+    overflow-x: hidden;
 }

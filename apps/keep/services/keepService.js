@@ -5,17 +5,25 @@ const key = "Notes";
 export const keepService = {
     getNotes,
     addNote,
-    removeList
+    removeList,
+    changeBgc
 
 }
 let gNotes;
 
 
-// function _getById(listId) {
-//     const list = notes.find(list => list.id === listId)
-//     return list;
-//   }
+function _getIdxById(noteId) {
+    const currNote = gNotes.findIndex(note => note.id === noteId)
+    return currNote;
+  }
 
+function changeBgc(color,id) {
+    const noteIdx = _getIdxById(id);
+
+    gNotes[noteIdx].style.bgc = color;
+    storageService.saveToStorage(key, gNotes);
+    console.log(gNotes)
+}
 
 function removeList(listId) {
     gNotes = gNotes.filter(list => list.id !== listId)

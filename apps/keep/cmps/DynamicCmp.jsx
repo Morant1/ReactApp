@@ -14,7 +14,6 @@ export class DynamicCmp extends React.Component {
     openColorPicker = () => {
         var colorToggle = !this.state.isColor
         this.setState({isColor : colorToggle})
-        console.log("OPEN")
     }
 
     getCmp = () => {
@@ -31,13 +30,14 @@ export class DynamicCmp extends React.Component {
     }
     render() {
         return (
-            <div className={`note note-${this.state.currType}`}>
+            <div className={`note note-${this.state.currType} picker-${this.props.list.style.bgc}`} >
                 {this.getCmp()}
                 <div className="icons">
                 <img src="apps\keep\assets\icons\trash-outline.svg" className="icon" onClick={()=>{this.props.removeList(this.props.list.id)}}/>
                 <img src="apps\keep\assets\icons\color-palette-outline.svg" className="icon"
                 onClick={this.openColorPicker}/>
-                {this.state.isColor && <ModalColor changeColor = {this.props.changeColor} id= {this.props.list.id}/>}
+
+                {this.state.isColor && <ModalColor openColorPicker={this.openColorPicker} changeColor = {this.props.changeColor} id= {this.props.list.id}/>}
 
                 </div>
             </div>
