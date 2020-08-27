@@ -2,7 +2,7 @@ textarea {
     width:90%;
     border-color: white;
     text-align: center;
-    font-size: 28px;
+    font-size: 25px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -12,14 +12,14 @@ textarea {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 25px 10%;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .main-keep-container {
-
     display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
-    grid-template-rows: repeat(4,150px);
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    grid-template-rows: repeat(4,170px);
     gap: 15px;
 }
 
@@ -29,7 +29,7 @@ textarea {
  
     width:100%;
     height:100%;
-    font-size: 28px;
+    font-size: 25px;
     text-align: center;
     border-radius: 21px;
     background-color: #fff;
@@ -46,7 +46,7 @@ textarea {
 .note-img{
     
     grid-column:span 2 ; 
-    grid-row:span 3;
+    grid-row:span 2;
 }
 
 .note-img .img {
@@ -67,7 +67,7 @@ textarea {
 
 .note-todo {
   
-    grid-row:span 3;
+    grid-row:span 2;
 }
 
 /* INPUT */
@@ -76,6 +76,8 @@ textarea {
     border-radius: 21px;
     border: 2px solid #e0e0e0;
     margin-bottom: 20px;
+    margin: 50px;
+    width:75%;
 }
 
 .input {
@@ -106,8 +108,8 @@ textarea {
 }
 .icon {
     margin:3px;
-    width:30px;
-    height: 30px;
+    width:25px;
+    height: 25px;
     transition: opacity .3s;
 }
 
@@ -226,3 +228,49 @@ textarea {
 
 }
 
+/* Media queries */
+@media (max-width: 800px) {
+    .main-keep-container {
+        grid-template-columns: repeat(3, minmax(180px, 1fr));
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+}
+}
+
+
+@media (max-width: 610px) {
+
+    .main-keep-container {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    grid-template-rows: repeat(4, 175px);
+        }
+
+
+    .note {
+        font-size: 18px;
+    }
+
+  
+
+    textarea {
+        font-size: 20px;
+    }
+    .input-container {
+        margin: 20px;
+        width: 100%;
+    }
+}
+
+
+
+@media (max-width: 360px) {
+    
+
+    .main-keep-container {
+        grid-template-columns: repeat(1, minmax(auto,300px));
+        grid-template-rows: repeat(4, 175px);
+    }
+}

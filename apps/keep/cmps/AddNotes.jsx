@@ -9,7 +9,7 @@ class _AddNotes extends React.Component {
         text: '',
         type: '',
         isOn: false,
-        placeholder: ''
+        placeholder: 'Choose your note type'
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -23,7 +23,6 @@ class _AddNotes extends React.Component {
         const search = this.props.searchParams;
         const params = new URLSearchParams(search);
         var text = params.get('text');
-        console.log(text)
         if (!text) text = ''
         this.setState({text:text,type:'text'},()=>{this.onSubmit()})
         
@@ -47,12 +46,13 @@ class _AddNotes extends React.Component {
     }
 
     onSubmit = () => {
-        console.log("TSUBMIT")
+
         if (!this.state.text) return;
           keepService.addNote(this.state.type,this.state.text);
           this.props.loadNotes();
           BusService.emit('notify', { msg: `Note added`, type: 'success'})
-          this.setState({text:'',type:'',isOn: false,placeholder: ''})
+        //   this.setState({text:'',type:'',isOn: false,placeholder: 'Choose your note type'})
+            this.setState({text: ''});
     
     }
 
@@ -60,7 +60,7 @@ class _AddNotes extends React.Component {
         return (
             <div className="input-container">
             <div className="input">
-                 <textarea rows="2" cols="70" placeholder={this.state.placeholder} value={this.state.text} onChange={this.onChangeInput} >
+                 <textarea  placeholder={this.state.placeholder} value={this.state.text} onChange={this.onChangeInput} >
             </textarea>
             <div className="main-icons">
                 <div>

@@ -11,7 +11,8 @@ body {
 .msgBox {
     background-color: rgba(128, 128, 128, 0.336);
     position: absolute;
-    left: 15%;
+    left: 18%;
+    top: 14.5%;
     display: block;
     font-weight: 100;
     border-radius: 21px;
