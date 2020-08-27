@@ -1,4 +1,4 @@
-import { StorageService } from '../../../services/storage-services.js'
+import { storageService } from '../../../services/storage-services.js'
 import { utils } from '../../../services/utils.js'
 
 
@@ -37,7 +37,7 @@ function addMail(subject, body, author = 'Keyser Söze', mailAddress = 'me@appsu
                 mailAddress
             }
             mails.push(newMail)
-            StorageService.saveToStorage('mailsList', mails)
+            storageService.saveToStorage('mailsList', mails)
             return Promise.resolve(mails)
         }
     )
@@ -64,7 +64,7 @@ function markAsRead(id) {
             .then(mails => {
                 var currMail = mails.find(mail => mail.id === id)
                 currMail.isRead = true
-                StorageService.saveToStorage('mailsList', mails)
+                storageService.saveToStorage('mailsList', mails)
                 return resolve()
             })
     })
@@ -76,7 +76,7 @@ function removeMail(id) {
             .then(mails => {
                 var currMailIdx = mails.findIndex(mail => mail.id === id)
                 mails.splice(currMailIdx, 1)
-                StorageService.saveToStorage('mailsList', mails)
+                storageService.saveToStorage('mailsList', mails)
                 resolve()
             })
     })
@@ -93,16 +93,17 @@ function toggleStatus(status, id) {
                 } else {
                     currMail[status] = true
                 }
-                StorageService.saveToStorage('mailsList', mails)
+                storageService.saveToStorage('mailsList', mails)
                 resolve()
             })
     })
 }
 
 function getAllMails() {
-    var mails = StorageService.loadFromStorage('mailsList')
+    console.log(storageService)
+    var mails = storageService.loadFromStorage('mailsList')
     if (!mails) {
-        StorageService.saveToStorage('mailsList', templateMails)
+        storageService.saveToStorage('mailsList', templateMails)
         mails = templateMails
     }
     console.log('getting mails', mails)

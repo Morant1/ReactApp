@@ -21,6 +21,14 @@ export default class MailDetails extends React.Component {
         }
     }
 
+    onReply = () => {
+        const subject = `Re: ${this.state.mail.subject}`
+        const recipient = this.state.mail.author
+        const body = this.state.mail.body
+        window.location.replace(`/#/mail/compose?body=${body}&recipient=${recipient}&subject=${subject}`)
+
+    }
+
     componentDidMount() {
         this.loadMail()
     }
@@ -39,7 +47,7 @@ export default class MailDetails extends React.Component {
                         <div className="mail-details-to">to me</div>
                         <div className="mail-details-body">{this.state.mail.body}</div>
                         <div className="mail-details-buttons">
-                            <button className="mail-details-reply">Reply</button>
+                            <button className="mail-details-reply" onClick={this.onReply}>Reply</button>
                         </div>
                     </div>
                 </div>
