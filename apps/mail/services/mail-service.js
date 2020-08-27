@@ -43,10 +43,18 @@ function addMail(subject, body, author = 'Keyser Söze', mailAddress = 'me@appsu
     )
 }
 
+function searchMails(searchQuery) {
+    var searchQuery = searchQuery.toLowerCase()
+    return templateMails.filter(mail => mail.subject.toLowerCase().includes(searchQuery) || mail.author.toLowerCase().includes(searchQuery) || mail.body.toLowerCase().includes(searchQuery))
+}
+
 function getMailsForDisplay(filters) {
     return new Promise(resolve => {
         getAllMails()
             .then(allMails => {
+                if (filters.searchQuery) {
+                    return resolve(searchMails(filters.searchQuery))
+                }
                 var mails = filterStarredAndArchived(allMails, filters.filterBy)
                 mails = sortMails(mails, filters.sortBy)
                 if (filters.filterReadAndUnread) {

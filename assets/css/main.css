@@ -26,7 +26,7 @@ header {
     flex-wrap: wrap;
 }
 
-nav {
+header nav {
     display: flex;
     max-width: 550px;
     justify-content: space-between;
@@ -35,7 +35,7 @@ nav {
     max-height: 4rem;
 }
 
-nav a {
+header nav a {
     text-decoration: none;
     /* height: 100%; */
     width: 100%;
@@ -46,7 +46,7 @@ nav a {
     color: #222
 }
 
-nav a:visited {
+header nav a:visited {
     color: inherit;
     text-decoration: none;
 }
@@ -80,5 +80,3 @@ nav a:visited {
 .active-nav .nav-option-container {
     box-shadow: inset 0px -9px 0px -5px rgba(217, 49, 37, 1);
 }
-
-.logo {}
