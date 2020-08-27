@@ -12,6 +12,21 @@ class _AddNotes extends React.Component {
         placeholder: ''
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.searchParams !== this.props.searchParams) {
+            this.updateFromQueryString()
+        }
+    }
+    
+    updateFromQueryString = () => {
+        const search = this.props.searchParams;
+        const params = new URLSearchParams(search);
+        var text = params.get('text');
+        console.log(text)
+        if (!text) text = ''
+        this.setState({text:text,type:'text'},()=>{this.onSubmit()})
+        
+    }
 
     onChangeInput = ({target}) => {
         if (this.state.isOn) {
@@ -31,6 +46,7 @@ class _AddNotes extends React.Component {
     }
 
     onSubmit = () => {
+        console.log("TSUBMIT")
         if (!this.state.text) return;
           keepService.addNote(this.state.type,this.state.text);
           this.props.loadNotes();

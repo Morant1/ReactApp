@@ -19,7 +19,7 @@ export class App extends React.Component {
                 </header>
                 <main>
                     <Switch>
-                        <Route component={ KeepApp } path="/keep" />
+                        <Route component={ KeepApp } path="/keep/" />
 
                         {/* <Route component={ About } path="/about" /> */}
                         {/* <Route component={ KeepApp } path="/keep" /> */}
