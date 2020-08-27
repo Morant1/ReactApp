@@ -8,6 +8,7 @@ export class KeepApp extends React.Component {
 
     state = {
         lists: [],
+        filterBy:''
     
     }
 
@@ -40,8 +41,30 @@ export class KeepApp extends React.Component {
 
     }
     getListsForDisplay() {
+        let sortedList;
+
         const lists = this.state.lists;
-        return lists.sort(list => !list.isPinned ? 1 : -1)
+        sortedList =  lists.sort(list => !list.isPinned ? 1 : -1);
+        if (!this.state.filterBy) {
+            return sortedList
+        } else {
+             const filteredList = sortedList.filter(list => {
+            if (list.info.txt) {
+                    return list.info.txt.toLocaleUpperCase().includes(this.state.filterBy.toLocaleUpperCase())
+            }
+            
+            if (list.info.todos) {
+                let todos = list.info.todos.map(todo => todo.txt.toLocaleUpperCase());
+                return todos.join(",").includes(this.state.filterBy.toLocaleUpperCase())
+            }})
+
+            return filteredList;
+        }
+    }
+    
+    onSetFilter = (filterBy) => {
+        this.setState({filterBy});
+     
     }
 
     render() {
@@ -49,7 +72,7 @@ export class KeepApp extends React.Component {
         return (
             <React.Fragment>
             <div className="search-container">
-                <SearchNotes/>
+                <SearchNotes  filterBy={this.state.filterBy} onSetFilter={this.onSetFilter}/>
             </div>
             <div className="main-container">
             <AddNotes loadNotes={this.loadNotes}/>
