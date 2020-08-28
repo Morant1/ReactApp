@@ -1,4 +1,4 @@
-import { utils } from './utils.js';
+import { utils } from '../../../services/utils.js';
 import { storageService } from '../../../services/storage-services.js'
 const key = "Notes";
 
@@ -42,7 +42,7 @@ function changeBgc(color,id) {
 
     gNotes[noteIdx].style.bgc = color;
     storageService.saveToStorage(key, gNotes);
-    console.log(gNotes)
+    
 }
 
 function removeList(listId) {
@@ -84,7 +84,7 @@ function _createNote(type, detail) {
         const videoIDIdx = detail.indexOf('=');
         let videoID = detail.slice(videoIDIdx + 1);
         list.info.url = videoID;
-        console.log(list.info.url)
+        
      
     }
 

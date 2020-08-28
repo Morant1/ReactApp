@@ -22,7 +22,7 @@ export class DynamicCmp extends React.Component {
 
     openEditor = () => {
         var editToggle = !this.state.isEdit
-        this.setState({isEdit : editToggle},()=>{console.log(this.state.isEdit)})
+        this.setState({isEdit : editToggle})
     }
 
     getCmp = () => {

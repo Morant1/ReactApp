@@ -3,7 +3,7 @@
 export class ModalColor extends React.Component {
 
     toggleColor = (color) => {
-        console.log(color)
+      
        this.props.changeColor(color,this.props.id);
        this.props.openColorPicker();
         

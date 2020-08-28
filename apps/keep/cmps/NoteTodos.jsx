@@ -1,4 +1,4 @@
-import { utils } from '../services/utils.js';
+import { utils } from '../../../services/utils.js';
 import { ItemTodo } from '../cmps/ItemTodo.jsx';
 
 export class NoteTodos extends React.Component {

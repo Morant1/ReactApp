@@ -5,6 +5,7 @@
 @import '../../apps/mail/assets/mail-compose.css';
 @import '../../apps/books/assets/book-main.css';
 @import './home.css';
+@import './about.css';
 html {
     font-size: 16px;
 }
