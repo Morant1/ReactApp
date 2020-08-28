@@ -1,0 +1,135 @@
+.book-details {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: center;
+}
+
+.book-details * {
+    box-sizing: border-box;
+}
+
+.book-details img {
+    max-width: 450px;
+}
+
+.review-stars {
+    width: 150px;
+    display: grid;
+    grid-template-columns: repeat(5, 30px);
+    margin: 1rem;
+}
+
+.reviews {
+    width: 100%;
+    font-weight: 300;
+}
+
+form .review-stars img:hover {
+    border-radius: 1000px;
+    background-color: #fce8e655;
+    cursor: pointer;
+}
+
+.book-details-read-more {
+    color: rgb(217, 49, 37);
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
+
+.book-details-read-more:hover {
+    color: rgb(230, 70, 59);
+}
+
+.book-reviews-container {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(999, minmax(200px, 280px));
+    overflow: scroll;
+    gap: 1rem;
+    padding: 1rem;
+    /* grid-template-rows: 1fr repeat(10, 0px); */
+    margin: 2rem;
+    /* overflow-x: scroll; */
+}
+
+.review-container {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    border-radius: 1rem;
+    /* margin: 1rem; */
+    padding: 1rem;
+}
+
+.reviews form {
+    margin: 2rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.reviews form button {
+    align-self: flex-end;
+    background-color: rgb(26, 115, 232);
+    width: 4.5rem;
+    height: 2.5rem;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.back-button {
+    position: absolute;
+    left: 2%;
+    color: rgb(29, 29, 29);
+    background-color: #eee;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: 0.1s;
+    margin: -0.5rem;
+}
+
+.back-button:before {
+    content: '< ';
+}
+
+.back-button:hover {
+    background-color: #ddd;
+}
+
+.reviews form button:hover {
+    box-shadow: 0 1px 2px 0 rgba(26, 115, 232, 0.451), 0 1px 3px 1px rgba(26, 115, 232, 0.302);
+    background-color: #297be6;
+    outline: 1px solid transparent;
+}
+
+.form-user-name {
+    width: 50%;
+    line-height: 2rem;
+    box-shadow: inset 0px -2px 0px 0px #4285f4;
+    border: 0px;
+    outline: 0px;
+}
+
+.form-read-date-input {
+    margin-left: 0.75rem;
+}
+
+.form-full-review {
+    margin: 1rem 0rem;
+    width: 100%;
+    box-shadow: inset 0px -2px 0px 0px #4285f4;
+    border: 0px;
+    outline: 0px;
+    background-color: #eee;
+    text-align: left;
+    padding: 0.75rem;
+}
+
+@media (min-width: 450px) {}

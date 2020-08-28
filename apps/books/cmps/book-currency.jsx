@@ -1,4 +1,4 @@
-export   function  getBookCurrency(bookPrice) {
+export function  getBookCurrency(bookPrice) {
     // var bookPrice = this.props.book.listPrice
     switch (bookPrice.currencyCode) {
         case 'EUR':

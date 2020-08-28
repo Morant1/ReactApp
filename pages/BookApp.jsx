@@ -1,11 +1,11 @@
 import {BookService} from '../apps/books/services/book-service.js'
-// import {BookFilter} from '../cmps/BookFilter.jsx'
 import BookList from '../apps/books/cmps/book-list.jsx'
-import BookDetails from '../apps/books/cmps/book-details-description.jsx'
+import { BookDetails } from '../apps/books/cmps/book-details-description.jsx'
 import { Modal } from '../global-cmps/Modal.jsx';
 import { BookAdd } from '../apps/books/cmps/book-add.jsx';
 import {BusService} from '../services/event-bus-service.js'
-
+const Router = ReactRouterDOM.HashRouter
+const { Route, Switch } = ReactRouterDOM
 
 export class BookApp extends React.Component { 
 
@@ -26,7 +26,7 @@ export class BookApp extends React.Component {
 
     booksToShow() {
         if (!this.state.books) return
-        return this.state.books.filter(book => book.title.includes(this.state.filterBy))
+        return this.state.books.filter(book => book.title.toLowerCase().includes(this.state.filterBy.toLowerCase()))
     }
 
     onSelectBook = (id) => {
@@ -50,16 +50,13 @@ export class BookApp extends React.Component {
     }
 
     render() {
-        
-            {if (this.state.books) {
-                return <div> {!this.state.selectedBook ? <section><div className="add-book-title">Add a book <BookAdd whenChange={this.getBooks} /></div>
-                
-                <BookList onSelectBook={this.onSelectBook} books={this.booksToShow()}  /></section>: <section><BookDetails book={this.state.selectedBook} onUnSelectBook={this.onUnSelectBook} />
-                <Modal  >
-                </Modal>
-                </section>
-            } </div>} else {
-                return <div></div>
-            }
-
+        console.log(this.state.books)
+            {if (!this.state.books) return (<div>
+                Loading...
+            </div>) 
+                return( <div> 
+                    
+                    {(!this.state.selectedBook) ? <section><div className="add-book-title"> <BookAdd whenChange={this.getBooks} /></div> <BookList onSelectBook={this.onSelectBook} books={this.booksToShow()}  /></section> : <section><BookDetails book={this.state.selectedBook} onUnSelectBook={this.onUnSelectBook} /></section>   } 
+            </div>
+                )
         }}}

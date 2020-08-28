@@ -8,6 +8,7 @@ const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 import {NavBar} from './global-cmps/navbar.jsx'
 import {GlobalSearch} from './global-cmps/global-search.jsx'
+import { BookDetails } from './apps/books/cmps/book-details-description.jsx'
 
 export class App extends React.Component {
 
@@ -22,11 +23,9 @@ export class App extends React.Component {
                 <main>
                     <Switch>
                         <Route component={ KeepApp } path="/keep/" />
-                        <Route path="/book/" component={ BookApp } />
-                            {/* <BookApp /> */}
-                            {/* </Route> */}
-                        <Route component={ MailApp } path="/mail/" />
-                        
+                        <Route component={ BookDetails } path="/book/:bookId" />
+                        <Route component={ BookApp } exact path="/book/" />
+                        <Route component={ MailApp } path="/mail/" />                        
                         <Route component={ About } path="/about" />
                         <Route component={ Home } path="/" />
                     </Switch>

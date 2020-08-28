@@ -1,5 +1,4 @@
-
-.about-container{
+.about-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,22 +7,21 @@
     font-size: 1.5rem;
     text-align: center;
     font-weight: 300;
-    padding:10px;
-    margin:10px;
- 
+    padding: 10px;
+    margin: 10px;
 }
 
 .services,
 .content {
- box-shadow:0px 1px 4px #8178785c;
- margin:2px;
+    /* box-shadow:0px 1px 4px #8178785c; */
+    margin: 2px;
 }
+
 .about-container img {
-    width:150px;
-    height:100px;
+    width: 150px;
+    height: 100px;
     margin-bottom: 20px;
-    margin-top:100px;
-  
+    margin-top: 100px;
 }
 
 .team {
@@ -33,19 +31,15 @@
 }
 
 @media (max-width: 380px) {
-    .about-container{
+    .about-container {
         font-size: 1rem;
     }
     .about-container img {
-        width:120px;
-        height:90px;
+        width: 120px;
+        height: 90px;
         margin-bottom: 10px;
-      
     }
-    
-.team {
-    font-size: 0.5rem;
-
-}
-    
+    .team {
+        font-size: 0.5rem;
+    }
 }

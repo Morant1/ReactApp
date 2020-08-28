@@ -1,3 +1,4 @@
+@import './book-details.css';
 .books-list {
     display: grid;
     padding: 1rem;
@@ -16,16 +17,17 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+    padding-top: 1rem;
 }
 
 .google-search-container {
     width: 90%;
-    margin: 0px;
-    padding: 0.5rem 1rem;
     position: relative;
+    box-sizing: border-box;
 }
 
-.google-search-input {
+
+/* .google-search-input {
     width: 95%;
     height: 2rem;
     border-radius: 1rem;
@@ -36,19 +38,115 @@
     border: none;
     padding: 0px 1rem;
     outline: none;
+} */
+
+.google-search-input {
+    height: 2rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    padding: 0px 1rem;
+    width: 100%;
+    /* border: 1px solid black; */
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    border: none;
+}
+
+.google-search-input-has-books {
+    border-radius: 10px 10px 0px 0px;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.google-search-input:focus {
+    outline: 0px;
+    box-sizing: border-box;
 }
 
 .google-books-search-results {
     position: absolute;
     background-color: white;
-    width: 95%;
-    margin: 0px;
+    width: 100%;
     padding: 1rem;
     margin-block-start: 0em;
+    box-sizing: border-box;
+    border-radius: 0px 0px 10px 10px;
+    margin-top: -2px;
+    /* box-shadow: inset 0px -1px 0px 1px rgba(0, 0, 0, 0.75); */
+    /* box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08); */
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
 }
 
 .google-books-search-results li {
     list-style: none;
     margin: 0px;
+    box-sizing: border-box;
+    padding: 0.5rem 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.google-books-search-results li button {
+    width: 2rem;
+    font-size: 0px;
+    border: none;
+    background-image: url(../../mail/assets/imgs/add_circle_outline-24px.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.google-books-search-results li div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.google-books-search-results li:hover {
+    background-color: #eee;
+}
+
+.book-title,
+.book-preview h4,
+.book-preview h3 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    overflow: hidden;
+    text-transform: capitalize;
+    margin: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    color: rgb(29, 29, 29);
+    font-weight: 400;
+}
+
+.book-preview {
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-preview h3 {
+    order: -1;
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.book-preview h4 {
+    flex-grow: 1;
+}
+
+.books-list a {
+    text-decoration: none;
+}
+
+.book-preview:hover {
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    transition: 0.1s;
 }

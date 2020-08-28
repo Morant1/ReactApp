@@ -43,6 +43,7 @@ header {
     width: 100%;
     top: 0px;
     background-color: white;
+    z-index: 9999;
 }
 
 main {

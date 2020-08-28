@@ -1,9 +1,9 @@
-import { BookService } from '../../../services/storage-services.js'
-import ReviewAdd from '../cmps/ReviewAdd.jsx'
-import {BookReviewDetails} from './BookReviewDetails.jsx'
+import { BookService } from '../services/book-service.js'
+import { ReviewAdd } from './review-add.jsx'
+import { BookReviewDetails } from './book-review-details.jsx'
 
 
-export default class BookReviews extends React.Component {
+export class BookReviews extends React.Component {
     
     state = {
         bookReviews: null
@@ -19,7 +19,10 @@ export default class BookReviews extends React.Component {
 
 
     updateReviews = () => {
-        BookService.getById(this.props.bookId)
+        const bookId = this.props.bookId
+        console.log('bookId',bookId)
+        console.log(BookService)
+        BookService.getById(bookId)
         .then(data => {
             const bookReview = data.review
             if (bookReview) {

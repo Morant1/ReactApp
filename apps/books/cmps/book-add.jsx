@@ -32,7 +32,7 @@ export class BookAdd extends React.Component {
     render() {
         return (
             <div className="google-search-container">
-                <input name="search" value={this.state.keyword} className={`google-search-input ${this.hasBooksDisplay()}`} onChange={ this.onInputChange } placeholder="Search book"></input>
+                <input name="search" value={this.state.keyword} className={`google-search-input ${this.hasBooksDisplay()}`} onChange={ this.onInputChange } placeholder="Search to add a book"></input>
                 <BookAddResults searchQuery={this.state.keyword} whenChange={this.onAddBook} hasBooks={this.hasBooks}  />
             </div>
         )

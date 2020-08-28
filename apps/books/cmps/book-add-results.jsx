@@ -34,9 +34,9 @@ export default class BookAddResults extends React.Component {
 
     checkIfHaveBooks = () => {
         if (this.state.books) {
-            console.log(true)
+            this.props.hasBooks(true)
         } else {
-            console.log(false)
+            this.props.hasBooks(false)
         }
     }
 
@@ -56,7 +56,7 @@ export default class BookAddResults extends React.Component {
                 {this.state.books.map((book,idx) => {
                     if (book.saleInfo.listPrice){
                         return (<li key={idx}>
-                            {book.volumeInfo.title}
+                            <div onClick={() => {this.addBook(idx)}}>{book.volumeInfo.title}</div>
                             <button onClick={() => {this.addBook(idx)}}>Add Book</button>
                     </li>)
                         }
