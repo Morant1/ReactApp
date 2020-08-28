@@ -12,8 +12,8 @@ iframe {
     height:75%;
 }
 
-img {
-    width: unset !important;
+.edit-note img {
+    width: unset;
 }
 .main-container {
 
@@ -320,7 +320,7 @@ img {
         font-size: 1rem;
     }
     .input-container {
-        margin: 20px;
+        margin: 45px 0 20px 0;
         width: 100%;
     }
 }
