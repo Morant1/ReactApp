@@ -5,6 +5,7 @@ export class BookAdd extends React.Component {
     
     state = {
         keyword: '',
+        hasBooks: false
     }
 
     onInputChange = (ev) => {
@@ -15,6 +16,11 @@ export class BookAdd extends React.Component {
     onAddBook = () => {
         this.props.whenChange()
         this.setState({keyword:''})
+    }
+
+    hasBooks = () => {
+        if (this.state.hasBooks) return 'google-search-input-has-books'
+        return 'google-search-input-no-books'
     }
 
     render() {

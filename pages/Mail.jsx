@@ -134,7 +134,7 @@ export default class MailApp extends React.Component {
                 <MailList mails={this.state.mails} checkFn={this.toggleChecked} starFn={this.onToggleStar} readFn={this.onRead} removeFn={this.onRemove} archiveFn={this.onArchive}/>
                 <Route component={() => <MailCompose sendFn={this.onSendMail} searchParams={this.props.location.search} />} exact path="/mail/compose" />
             </Route>
-            <Route  component={MailDetails} exact path="/mail/inbox/:mailId" />
+            <Route  component={MailDetails} path="/mail/inbox/:mailId" />
             </Switch>
             </div>
             </section>

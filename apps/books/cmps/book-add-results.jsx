@@ -1,5 +1,5 @@
 import { getGoogleBooks } from '../services/google-books-service.js'
-import { BookService } from '../../../services/storage-services.js'
+import { BookService } from '../services/book-service.js'
 
 export default class BookAddResults extends React.Component {
     state = {
@@ -9,7 +9,6 @@ export default class BookAddResults extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.searchQuery === this.props.searchQuery) return
         if (this.props.searchQuery.length === 0) {
-            console.log('searchQuery')
             this.setState({books:null})
             return }
         this.getBooksFromApi()
@@ -17,6 +16,7 @@ export default class BookAddResults extends React.Component {
     }
     
     addBook = (bookIdx) => {
+        
         const book = this.state.books[bookIdx]
         var newBook = {
             authors: book.volumeInfo.authors,
@@ -30,8 +30,6 @@ export default class BookAddResults extends React.Component {
             thumbnail: book.volumeInfo.imageLinks.thumbnail
         }
         BookService.addGoogleBook(newBook).then(() => this.props.whenChange())
-        
-        
     }
 
     getBooksFromApi() {
