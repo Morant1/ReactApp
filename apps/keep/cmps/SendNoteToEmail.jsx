@@ -2,9 +2,6 @@ const { Link } = ReactRouterDOM;
 
 export class SendNoteToEmail extends React.Component {
 
-    sendEmail = () => {
-
-    }
 
     render() {
         return (

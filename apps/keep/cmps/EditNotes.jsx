@@ -9,7 +9,6 @@ export class EditNotes extends React.Component {
     onChangeInput = ({target}) => {
 
         const {value} = target;
-        console.log(value)
         this.setState(
             { value }
             )

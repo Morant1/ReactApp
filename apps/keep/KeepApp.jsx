@@ -71,9 +71,11 @@ export class KeepApp extends React.Component {
 
     render() {
         const listToShow = this.getListsForDisplay();
+        // 
         const pinnedList = listToShow.filter(list=> list.isPinned);
         const unPinnedList = listToShow.filter(list=> !list.isPinned);
-        console.log(pinnedList,unPinnedList)
+        // 
+        
         
         return (
             <React.Fragment>
@@ -94,7 +96,6 @@ export class KeepApp extends React.Component {
               </React.Fragment>  
              :null
              }        
-            {/* {pinnedList.length? <div className="border-line"></div> :null} */}
             <div className="main-keep-container">
             {unPinnedList.map((list) => {
                     return <DynamicCmp key={list.id} list={list} removeList={this.removeList}
