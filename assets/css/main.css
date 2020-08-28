@@ -84,8 +84,7 @@ header nav a:visited {
 
 .global-search {
     margin: 0.5rem;
-    flex-grow: 1;
-    padding: 0px 3rem;
+    flex-grow: 4;
 }
 
 .global-search input {
@@ -106,7 +105,13 @@ header nav a:visited {
 }
 
 .logo {
-    font-size: 1.3rem;
+    background-image: url(../img/appsus.svg);
+    background-position: center;
+    background-size: contain;
+    flex-grow: 1;
+    min-width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
 }
 
 @media (max-width: 936px) {

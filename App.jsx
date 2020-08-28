@@ -14,7 +14,7 @@ export class App extends React.Component {
         return (
             <Router>
                 <header>
-                    <div className="logo">AppSuS</div>
+                    <div className="logo"></div>
                     <GlobalSearch />
                     <NavBar />
                 </header>
