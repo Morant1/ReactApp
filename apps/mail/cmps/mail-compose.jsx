@@ -46,7 +46,7 @@ export default class MailCompose extends React.Component {
     render() {
         return (
             <div className="mail-compose-container">
-                <div className="mail-compose-title"><span>New Message</span><span onClick={() => {window.location.replace('/#/mail/inbox')}} className="mail-compose-close">X</span></div>
+                <div className="mail-compose-title"><span>New Message</span><span onClick={() => {window.location.replace(`${window.location.origin}${window.location.pathname}#/mail/inbox`)}} className="mail-compose-close">X</span></div>
                 <div className="mail-compose-recipient">
                     <input type="email" className="mail-compose-rec-input" value={this.state.recipient} placeholder="Receipients" name="recipient" onChange={this.onInputChange}></input>
                 </div>

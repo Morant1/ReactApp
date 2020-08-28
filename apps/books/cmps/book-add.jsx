@@ -18,7 +18,13 @@ export class BookAdd extends React.Component {
         this.setState({keyword:''})
     }
 
-    hasBooks = () => {
+    hasBooks = (hasBooks) => {
+        if (hasBooks !== this.state.hasBooks) {
+            this.setState({hasBooks})
+        }
+    }
+
+    hasBooksDisplay = () => {
         if (this.state.hasBooks) return 'google-search-input-has-books'
         return 'google-search-input-no-books'
     }
@@ -26,8 +32,8 @@ export class BookAdd extends React.Component {
     render() {
         return (
             <div className="google-search-container">
-                <input name="search" value={this.state.keyword} className="google-search-input"  onChange={ this.onInputChange } placeholder="Search book"></input>
-                <BookAddResults searchQuery={this.state.keyword} whenChange={this.onAddBook} />
+                <input name="search" value={this.state.keyword} className={`google-search-input ${this.hasBooksDisplay()}`} onChange={ this.onInputChange } placeholder="Search book"></input>
+                <BookAddResults searchQuery={this.state.keyword} whenChange={this.onAddBook} hasBooks={this.hasBooks}  />
             </div>
         )
     }

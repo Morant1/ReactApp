@@ -53,10 +53,14 @@ export default class MailApp extends React.Component {
         MailService.toggleStar(id).then(res => this.getMailsForDisplay())
     }
 
+    relativeLink = (path) => {
+        return `${window.location.origin}${window.location.pathname}${path}`
+    }
 
     onRead = (id) => {
         MailService.markAsRead(id).then(res => this.getMailsForDisplay())
-        window.location.replace(`/#/mail/inbox/${id}`)
+        const link = this.relativeLink(`#/mail/inbox/${id}`)
+        window.location.replace(link)
     }
 
     onRemove = (id) => {
@@ -92,7 +96,8 @@ export default class MailApp extends React.Component {
         MailService.addMail(mail.subject,mail.body)
         .then(res => {
             this.getMailsForDisplay()
-            window.location.replace(`/#/mail/inbox/`)
+            const link = this.relativeLink(`#/mail/inbox/`)
+            window.location.replace(link)
         })
     }
 

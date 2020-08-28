@@ -12,7 +12,7 @@ export default class BookAddResults extends React.Component {
             this.setState({books:null})
             return }
         this.getBooksFromApi()
-        
+        // this.checkIfHaveBooks()
     }
     
     addBook = (bookIdx) => {
@@ -32,14 +32,27 @@ export default class BookAddResults extends React.Component {
         BookService.addGoogleBook(newBook).then(() => this.props.whenChange())
     }
 
+    checkIfHaveBooks = () => {
+        if (this.state.books) {
+            console.log(true)
+        } else {
+            console.log(false)
+        }
+    }
+
     getBooksFromApi() {
         getGoogleBooks(this.props.searchQuery).then(data => this.setState({books:data.items}))
+        
     }
 
     render() {
-        if (!this.state.books) return <div></div>
+        if (!this.state.books) return (
+            
+        <div>{this.checkIfHaveBooks()}</div>
+        )
         return (
             <ul className="google-books-search-results">
+                {this.checkIfHaveBooks()}
                 {this.state.books.map((book,idx) => {
                     if (book.saleInfo.listPrice){
                         return (<li key={idx}>
