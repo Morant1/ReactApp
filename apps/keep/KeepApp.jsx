@@ -71,8 +71,10 @@ export class KeepApp extends React.Component {
 
     render() {
         const listToShow = this.getListsForDisplay();
+        // 
         const pinnedList = listToShow.filter(list=> list.isPinned);
         const unPinnedList = listToShow.filter(list=> !list.isPinned);
+        // 
         
         
         return (

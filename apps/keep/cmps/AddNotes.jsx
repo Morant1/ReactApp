@@ -42,7 +42,7 @@ class _AddNotes extends React.Component {
         
         if (type === "text")  this.setState({type,placeholder:'Enter your text',text:'',isOn: true})
         if (type === "img")  this.setState({type,placeholder:'Enter image URL...',text:'',isOn: true})
-        if (type === "video")  this.setState({type,placeholder:'Enter video video...',text:'',isOn: true})
+        if (type === "video")  this.setState({type,placeholder:'Enter video URL...',text:'',isOn: true})
         if (type === "todo")  this.setState({type,placeholder:'Enter comma separated list...',text:'',isOn: true})
     }
 
