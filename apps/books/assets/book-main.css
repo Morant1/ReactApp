@@ -10,3 +10,45 @@
     border: 2px solid #e0e0e0;
     border-radius: 10px;
 }
+
+.add-book-title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.google-search-container {
+    width: 90%;
+    margin: 0px;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.google-search-input {
+    width: 95%;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: #cccccc99;
+    color: rgb(29, 29, 29);
+    line-height: 1.8rem;
+    font-size: 1rem;
+    border: none;
+    padding: 0px 1rem;
+    outline: none;
+}
+
+.google-books-search-results {
+    position: absolute;
+    background-color: white;
+    width: 95%;
+    margin: 0px;
+    padding: 1rem;
+    margin-block-start: 0em;
+    box-sizing: border-box;
+}
+
+.google-books-search-results li {
+    list-style: none;
+    margin: 0px;
+}

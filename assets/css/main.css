@@ -11,8 +11,8 @@ html {
 
 body {
     margin: 0 auto;
-    height: 100vh;
-    overflow-x: hidden;
+    /* height: 100vh; */
+    /* overflow-x: hidden; */
     font-family: 'Roboto', sans-serif;
 }
 
@@ -32,7 +32,6 @@ body {
 }
 
 header {
-    padding: 0px 5px;
     display: flex;
     min-height: 3rem;
     justify-content: center;
@@ -46,7 +45,7 @@ header {
 }
 
 main {
-    margin-top: 3rem;
+    margin-top: 3.1rem;
 }
 
 header nav {
@@ -116,8 +115,6 @@ header nav a:visited {
 
 @media (max-width: 936px) {
     main {
-        margin-top: 6rem
+        margin-top: 6.1rem
     }
 }
-
-@media (max-width: 400px) {}
