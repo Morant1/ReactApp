@@ -2,10 +2,19 @@ textarea {
     width:90%;
     border-color: white;
     text-align: center;
-    font-size: 25px;
+    font-size: 1.2rem;
     font-family: 'Roboto', sans-serif;
+    margin:3px;
 }
 
+iframe {
+    width:90%;
+    height:75%;
+}
+
+img {
+    width: unset !important;
+}
 .main-container {
 
     display: flex;
@@ -19,10 +28,35 @@ textarea {
 
 .main-keep-container {
     display: grid;
-    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    grid-template-columns: repeat(4, minmax(180px, 33.33%));
     grid-template-rows: repeat(4,170px);
     gap: 15px;
+    margin: 20px 0;
 }
+
+.main-keep-container-pinned {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(170px, 33.33%));
+    /* grid-template-rows: repeat(1,150px); */
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.border-line {
+    width: 100%;
+    box-shadow: -1px -1px 2px 1px #00000017;
+}
+
+/* .main-keep-container-pinned .note {
+    width:200px;
+    height:200px;
+
+}
+
+.main-keep-container-pinned .note .img {
+    height:auto;
+    width: 100px;
+} */
 
 /* NOTES */
 
@@ -76,8 +110,7 @@ textarea {
     padding:5px;
     border-radius: 21px;
     border: 2px solid #e0e0e0;
-    margin-bottom: 20px;
-    margin: 50px;
+    margin: 50px 50px 0 50px;
     width:75%;
 }
 
@@ -85,6 +118,10 @@ textarea {
    display: flex;
    width:100%;
 
+}
+
+.text-input {
+    font-size: 1rem;
 }
 
 .input textarea {
@@ -96,6 +133,18 @@ textarea {
     outline:none;
 }
 
+.input-replace {
+    text-align: center;
+    width: 100%;
+    line-height: 2;
+    color: #6d5c5c;
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.item-todo {
+    font-size:1rem;
+}
 /* ICON */
 .main-icons {
     background-color: #0000000a;
@@ -112,6 +161,7 @@ textarea {
     width:25px;
     height: 25px;
     transition: opacity .3s;
+    cursor: pointer;
 }
 
 .icon:hover {
@@ -230,24 +280,32 @@ textarea {
 }
 
 /* Media queries */
-@media (max-width: 800px) {
+@media (max-width: 930px) {
     .main-keep-container {
         grid-template-columns: repeat(3, minmax(180px, 1fr));
     }
-
+    .main-keep-container-pinned {
+        grid-template-columns: repeat(3, minmax(180px, 1fr));
+    }
     .icon {
         width: 20px;
         height: 20px;
 }
 }
 
+.input-replace {
+    font-size: 1.2rem;
+}
 
 @media (max-width: 610px) {
 
-    .main-keep-container {
+    .main-keep-container  {
     grid-template-columns: repeat(2, minmax(150px, 1fr));
-    grid-template-rows: repeat(4, 175px);
+    grid-template-rows: repeat(4, 150px);
         }
+    .main-keep-container-pinned{
+        grid-template-columns: repeat(2, minmax(150px, 1fr));  
+    }
 
 
     .note {
@@ -259,7 +317,7 @@ textarea {
     }
 
     textarea {
-        font-size: 20px;
+        font-size: 1rem;
     }
     .input-container {
         margin: 20px;
@@ -272,8 +330,22 @@ textarea {
 @media (max-width: 360px) {
     
 
-    .main-keep-container {
-        grid-template-columns: repeat(1, minmax(auto,300px));
-        grid-template-rows: repeat(4, 175px);
+    .main-keep-container  {
+        grid-template-columns: repeat(2, minmax(130px,300px));
+        grid-template-rows: repeat(4, 130px);
+    }
+    .main-keep-container-pinned {
+        grid-template-columns: repeat(2, minmax(130px,300px));
+    }
+
+    iframe {
+        width:90%;
+        height:70%;
+    }
+    .item-todo {
+        font-size: 0.8rem;
+    }
+    .text-input {
+        font-size: 0.8rem;
     }
 }

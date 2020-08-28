@@ -9,7 +9,7 @@ export class NoteVideo extends React.Component {
                 onClick={()=>{this.props.pinnedNote(this.props.list.id,this.props.list.isPinned)}}/>
                 <img className="icon"src="apps\keep\assets\icons\videocam-outline.svg"/>
                 </div>
-                <iframe width="200" height="205"
+                <iframe 
                     src={`https://www.youtube.com/embed/${this.props.list.info.url}?autoplay=1`}>
                 </iframe>
             </div>

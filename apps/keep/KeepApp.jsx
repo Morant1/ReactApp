@@ -47,7 +47,7 @@ export class KeepApp extends React.Component {
         let sortedList;
 
         const lists = this.state.lists;
-        sortedList =  lists.sort(list => !list.isPinned ? 1 : -1);
+        sortedList =  lists.sort(list => !list.isPinned ? 1 : 0);
         if (!this.state.filterBy) {
             return sortedList
         } else {
@@ -71,13 +71,32 @@ export class KeepApp extends React.Component {
 
     render() {
         const listToShow = this.getListsForDisplay();
+        const pinnedList = listToShow.filter(list=> list.isPinned);
+        const unPinnedList = listToShow.filter(list=> !list.isPinned);
+        console.log(pinnedList,unPinnedList)
+        
         return (
             <React.Fragment>
                 <Router>
             <div className="main-container">
             <Route><AddNotes loadNotes={this.loadNotes} exact path="/keep/addNote" searchParams={this.props.location.search}/></Route>
+            {pinnedList.length
+            ?   
+            <React.Fragment>        
+            <div className="main-keep-container-pinned">
+                {pinnedList.map((list) => {
+                    return <DynamicCmp key={list.id} list={list} removeList={this.removeList}
+                    changeColor={this.changeColor} loadNotes={this.loadNotes} pinnedNote={this.pinnedNote}/>
+             })}
+            
+             </div>
+              <div className="border-line"></div>
+              </React.Fragment>  
+             :null
+             }        
+            {/* {pinnedList.length? <div className="border-line"></div> :null} */}
             <div className="main-keep-container">
-            {listToShow.map((list) => {
+            {unPinnedList.map((list) => {
                     return <DynamicCmp key={list.id} list={list} removeList={this.removeList}
                     changeColor={this.changeColor} loadNotes={this.loadNotes} pinnedNote={this.pinnedNote}/>
                 })}
