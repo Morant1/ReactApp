@@ -9,7 +9,6 @@ export default class MailDetails extends React.Component {
     }
     
     loadMail = () => {
-        // console.log('props',this.props)
         const mailId = this.props.match.params.mailId
         MailService.getMailDetails(mailId)
         .then(mail => this.setState({mail}))
@@ -54,7 +53,7 @@ export default class MailDetails extends React.Component {
 
     render() {
         if (!this.state.mail) return <div>Loading...</div>
-        // console.log(this.state.mail)
+        
         return (
             <div className="mail-details-master-container">
                 <div className="mail-details-subject">{this.state.mail.subject}</div>

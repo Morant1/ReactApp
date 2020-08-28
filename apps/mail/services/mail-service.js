@@ -233,7 +233,6 @@ function getAllMails() {
         storageService.saveToStorage('mailsList', templateMails)
         mails = templateMails
     }
-    // console.log('getting mails', mails)
     return Promise.resolve(mails)
 }
 

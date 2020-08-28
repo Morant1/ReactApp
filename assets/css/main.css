@@ -3,15 +3,15 @@
 @import '../../apps/mail/assets/mail-details.css';
 @import '../../apps/mail/assets/mail-list.css';
 @import '../../apps/mail/assets/mail-compose.css';
+@import '../../apps/books/assets/book-main.css';
 @import './home.css';
-
 html {
     font-size: 16px;
 }
 
 body {
     margin: 0 auto;
-    height:100vh;
+    height: 100vh;
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
 }
@@ -39,6 +39,14 @@ header {
     align-items: center;
     flex-wrap: wrap;
     box-shadow: -3px 0px 6px 0px #000000c4;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    background-color: white;
+}
+
+main {
+    margin-top: 3rem;
 }
 
 header nav {
@@ -100,3 +108,11 @@ header nav a:visited {
 .logo {
     font-size: 1.3rem;
 }
+
+@media (max-width: 936px) {
+    main {
+        margin-top: 6rem
+    }
+}
+
+@media (max-width: 400px) {}
