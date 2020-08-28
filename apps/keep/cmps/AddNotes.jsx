@@ -7,9 +7,9 @@ class _AddNotes extends React.Component {
 
     state = {
         text: '',
-        type: '',
-        isOn: false,
-        placeholder: 'Choose your note type'
+        type: 'text',
+        // isOn: false,
+        placeholder: 'Enter your text'
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -30,24 +30,25 @@ class _AddNotes extends React.Component {
     }
 
     onChangeInput = ({target}) => {
-        if (this.state.isOn) {
+        // if (this.state.isOn) {
         const {value} = target;
         console.log(value)
         this.setState(
             {text: value }
             )
-        }
+        // }
     }
 
     addType = (type) => {
-        if (type === "text")  this.setState({type,placeholder:'Enter your text',isOn: true})
-        if (type === "img")  this.setState({type,placeholder:'Enter image URL...',isOn: true})
-        if (type === "video")  this.setState({type,placeholder:'Enter video video...',isOn: true})
-        if (type === "todo")  this.setState({type,placeholder:'Enter comma separated list...',isOn: true})
+        console.log(type)
+        if (type === "text")  this.setState({type,placeholder:'Enter your text',text:'',isOn: true})
+        if (type === "img")  this.setState({type,placeholder:'Enter image URL...',text:'',isOn: true})
+        if (type === "video")  this.setState({type,placeholder:'Enter video video...',text:'',isOn: true})
+        if (type === "todo")  this.setState({type,placeholder:'Enter comma separated list...',text:'',isOn: true})
     }
 
     onSubmit = () => {
-
+        console.log("submit")
         if (!this.state.text) return;
           keepService.addNote(this.state.type,this.state.text);
           this.props.loadNotes();
@@ -61,8 +62,9 @@ class _AddNotes extends React.Component {
         return (
             <div className="input-container">
             <div className="input">
-                 <textarea  placeholder={this.state.placeholder} value={this.state.text} onChange={this.onChangeInput} >
+                <textarea  placeholder={this.state.placeholder} value={this.state.text} onChange={this.onChangeInput} >
             </textarea>
+            {/* {!this.state.isOn && <div className="input-replace">Choose your note type</div>} */}
             <div className="main-icons">
                 <div>
             <img onClick={()=>{this.addType("text")}}className="icon"src="apps\keep\assets\icons\text-outline.svg"/>

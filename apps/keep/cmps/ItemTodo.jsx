@@ -1,4 +1,4 @@
-
+import {LongTxt} from './LongTxt.jsx'
 export class ItemTodo extends React.Component {
 
      state = {
@@ -20,7 +20,9 @@ export class ItemTodo extends React.Component {
 
     render() {
         return (
-            <li style={this.getStyle()} onClick={this.isCompleted}>{this.props.todo.txt}</li>
+            <li className="item-todo" style={this.getStyle()} onClick={this.isCompleted}>
+                <LongTxt txt = {this.props.todo.txt}/>
+            </li>
         )
     }
 }
