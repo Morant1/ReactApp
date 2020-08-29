@@ -1,6 +1,8 @@
 .mail-list {
     margin: 0px;
-    padding: 0rem
+    padding: 0rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: scroll;
 }
 
 .mail-list-container {
