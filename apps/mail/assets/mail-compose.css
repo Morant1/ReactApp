@@ -13,7 +13,6 @@
 
 .mail-compose-subject,
 .mail-compose-recipient {
-    display: flex;
     margin: 0 auto;
     padding: 0.5rem 0.25rem;
     width: 90%;

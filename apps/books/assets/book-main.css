@@ -105,8 +105,8 @@
 
 .book-preview {
     height: 20rem;
-    display: grid;
-    grid-template-rows: 2rem auto 2rem;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding: 0.5rem;
     border: 2px solid #e0e0e0;
@@ -118,6 +118,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .book-preview-title-container {
