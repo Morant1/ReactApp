@@ -91,24 +91,22 @@
 }
 
 .book-title,
-.book-preview h4,
-.book-preview h3 {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: center;
-    overflow: hidden;
-    text-transform: capitalize;
-    margin: 0.5rem 0px;
+.book-preview-price-container,
+.book-preview-title-container {
     width: 100%;
     font-size: 1rem;
     color: rgb(29, 29, 29);
     font-weight: 400;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .book-preview {
     height: 20rem;
     display: grid;
-    flex-direction: column;
+    grid-template-rows: 2rem auto 2rem;
     justify-content: space-between;
     padding: 0.5rem;
     border: 2px solid #e0e0e0;
@@ -116,15 +114,24 @@
 }
 
 .book-image-container {
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.book-preview h3 {
+.book-preview-title-container {
     order: -1;
     font-weight: 500;
+}
+
+.book-preview-title-container h3,
+.book-preview-price-container h4 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    overflow: hidden;
+    text-transform: capitalize;
+    margin: 0px;
 }
 
 .books-list a {
