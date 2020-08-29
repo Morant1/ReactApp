@@ -10,7 +10,7 @@ export default function StarRating(props) {
 
   
   function getStars(amount) {
-    console.log(amount)
+    
     if (!amount) amount = 0
     const hollowedStarsAmount = 5 - amount
     var imgStarsArray = []
@@ -23,7 +23,7 @@ export default function StarRating(props) {
     return imgStarsArray
   }
 
-  console.log('star value',props.value)
+  
   return (
         <div className="review-stars">{getStars(props.value)}</div>
   );

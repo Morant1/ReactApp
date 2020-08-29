@@ -50,7 +50,7 @@ export class BookApp extends React.Component {
     }
 
     render() {
-        console.log(this.state.books)
+        
             {if (!this.state.books) return (<div>
                 Loading...
             </div>) 

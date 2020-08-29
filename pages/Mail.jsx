@@ -7,6 +7,7 @@ import { SideBar } from '../apps/mail/cmps/mail-sidebar.jsx'
 import MailCompose from '../apps/mail/cmps/mail-compose.jsx'
 import {BusService} from '../services/event-bus-service.js'
 import { Toolbar } from '../apps/mail/cmps/toolbar-dynamic-cmp.jsx'
+import { utils } from '../services/utils.js'
 
 export default class MailApp extends React.Component { 
 
@@ -53,13 +54,13 @@ export default class MailApp extends React.Component {
         MailService.toggleStar(id).then(res => this.getMailsForDisplay())
     }
 
-    relativeLink = (path) => {
-        return `${window.location.origin}${window.location.pathname}${path}`
-    }
+    // relativeLink = (path) => {
+    //     return `${window.location.origin}${window.location.pathname}${path}`
+    // }
 
     onRead = (id) => {
         MailService.markAsRead(id).then(res => this.getMailsForDisplay())
-        const link = this.relativeLink(`#/mail/inbox/${id}`)
+        const link = utils.relativeLink(`#/mail/inbox/${id}`)
         window.location.replace(link)
     }
 
@@ -97,7 +98,7 @@ export default class MailApp extends React.Component {
         MailService.addMail(mail.subject,mail.body,mail.bodyPlainText)
         .then(res => {
             this.getMailsForDisplay()
-            const link = this.relativeLink(`#/mail/inbox/`)
+            const link = utils.relativeLink(`#/mail/inbox/`)
             window.location.replace(link)
         })
     }

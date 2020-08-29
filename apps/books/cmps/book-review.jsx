@@ -10,7 +10,7 @@ export class BookReviews extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('props',this.props)
+        
     }
     
     componentDidMount() {
@@ -20,8 +20,7 @@ export class BookReviews extends React.Component {
 
     updateReviews = () => {
         const bookId = this.props.bookId
-        console.log('bookId',bookId)
-        console.log(BookService)
+       
         BookService.getById(bookId)
         .then(data => {
             const bookReview = data.review

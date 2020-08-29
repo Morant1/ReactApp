@@ -26,7 +26,7 @@ export class ReviewAdd extends React.Component {
     }
 
     onAddRate = (value) => {
-        console.log(value)
+        // console.log(value)
         this.setState({review:{...this.state.review,rating:value}})
     }
 

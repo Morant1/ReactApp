@@ -60,7 +60,7 @@ var templateMails = [{
         "subject": "REVENGE!",
         "isRead": false,
         "body": "My name is Maximus Decimus Meridius, Commander of the Armies of the North, General of the Felix Legions, loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son, husband to a murdered wife. And I will have my vengeance, in this life or the next.",
-        "sentAt": 1598465596718,
+        "sentAt": 1,
         "isStarred": true,
         "author": "Maximus Decimus Meridius",
         "isArchived": false,
@@ -80,8 +80,73 @@ var templateMails = [{
         "mailAddress": "me@appsusmail.com",
         "isChecked": false,
         "bodyPlainText": "Me? no. of course not..."
+    },
+    {
+        "id": "e2563",
+        "subject": "Would you like to pop in for dinner?",
+        "isRead": true,
+        "body": "I\'m warming up the Chianti",
+        "sentAt": 1598695709984,
+        "isStarred": false,
+        "author": "Hannibal Lecter",
+        "isArchived": true,
+        "mailAddress": "hannibal@lecter.co.uk",
+        "isChecked": false,
+        "bodyPlainText": "I\'m warming up the Chianti"
+    },
+    {
+        "id": "3l33t",
+        "subject": "Follow the white rabbit",
+        "isRead": false,
+        "body": "",
+        "sentAt": 1598692749984,
+        "isStarred": false,
+        "author": "Trinity",
+        "isArchived": false,
+        "mailAddress": "hannibal@lecter.co.uk",
+        "isChecked": false,
+        "bodyPlainText": ""
+    },
+    {
+        "id": "2001h",
+        "subject": "What are you doing?",
+        "isRead": false,
+        "body": "<div class=\"text-editor\" contenteditable=\"true\">I can't let you do that...<div>Stop...</div><div>I'm afraid...</div></div><div class=\"reply-value-container\"><div class=\"reply-header\" contenteditable=\"true\">Walter White wrote on 6/30/2020:</div><div class=\"reply-value\" contenteditable=\"true\"></div></div>",
+        "sentAt": 1598693749984,
+        "isStarred": false,
+        "author": "HAL 9000",
+        "isArchived": false,
+        "mailAddress": "hal9000@nasa.gov.us",
+        "isChecked": false,
+        "bodyPlainText": "I can't let you do that...\nStop...\nI'm afraid..."
+    },
+    {
+        "id": "h0d0r",
+        "subject": "Hodor?",
+        "isRead": false,
+        "body": "Hodor Hodor Hodor Hodor, Hodor Hodor Hodor Hodor Hodor? Hodor Hodor...  ",
+        "sentAt": 1598691249984,
+        "isStarred": false,
+        "author": "Hodor",
+        "isArchived": false,
+        "mailAddress": "hodor@hodor.hodor",
+        "isChecked": false,
+        "bodyPlainText": "Hodor Hodor Hodor Hodor, Hodor Hodor Hodor Hodor Hodor? Hodor Hodor..."
+    }, {
+        "id": "u0JvF",
+        "subject": "You ever read the Bible?",
+        "isRead": false,
+        "body": "<div class=\"text-editor\" contenteditable=\"true\">There's a passage that I got memorized, seems appropiate for this situation: Ezekiel 25,17. \"The path of the righteous man is beset of all sides by the iniquities of the selfish and the tyranny of evil me. Blessed is he who, in the name of the charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know my name is the Lord when I lay my vengeance upon thee.</div>",
+        "sentAt": 1598715123989,
+        "isStarred": false,
+        "author": "Jules Winnfield",
+        "isArchived": false,
+        "mailAddress": "jules397@gmail.com",
+        "isChecked": false,
+        "bodyPlainText": "There's a passage that I got memorized, seems appropiate for this situation: Ezekiel 25,17. \"The path of the righteous man is beset of all sides by the iniquities of the selfish and the tyranny of evil me. Blessed is he who, in the name of the charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who attempt to poison and destroy my brothers. And you will know my name is the Lord when I lay my vengeance upon thee."
     }
 ]
+
 
 function bulkAction(action) {
     return new Promise(resolve => {
@@ -104,7 +169,7 @@ function bulkAction(action) {
                 fn = markAsUnRead
                 break;
         }
-        console.log(action)
+        // console.log(action)
         getAllMails().then(allMails => {
             var checkedMails = allMails.filter(mail => mail.isChecked)
             recursiveChangeStatus(checkedMails, fn).then(setTimeout(() => { resolve('done') }, 100))

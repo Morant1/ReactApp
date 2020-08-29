@@ -454,7 +454,7 @@ function getById(bookId) {
     return new Promise(resolve => {
         getAllBooks()
             .then(books => {
-                console.log(books)
+                // console.log(books)
                 resolve(books.find(book => book.id === bookId))
             })
     })

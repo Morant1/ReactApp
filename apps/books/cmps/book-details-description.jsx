@@ -60,10 +60,10 @@ export class BookDetails extends React.Component {
     }
 
     render() {
-        console.log(this.state)
+        
         const {bookId} = this.props.match.params
         {if (!this.state.book) return <div></div>}
-        console.log(getBookCurrency(this.state.book.listPrice))
+        
         return <section className="book-details">
                 <Link to="/book/"><div className="back-button">Back to list</div></Link>
                     <h2 className="book-title">{this.state.book.title}</h2>

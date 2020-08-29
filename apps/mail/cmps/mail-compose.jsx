@@ -37,7 +37,7 @@ export default class MailCompose extends React.Component {
         if (!subject) subject = ''
         if (!recipient) recipient = ''
         
-        console.log(inBodyPlainText)
+        // console.log(inBodyPlainText)
         this.setState({inBodyPlainText: inBodyPlainText,subject,recipient})
     }
 
