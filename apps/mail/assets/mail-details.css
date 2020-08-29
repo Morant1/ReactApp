@@ -1,5 +1,7 @@
 .mail-details-container {
     display: flex;
+    max-height: 82vh;
+    overflow-y: scroll;
 }
 
 .mail-details-content-container {

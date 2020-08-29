@@ -83,6 +83,7 @@
 .mail-compose-body-container {
     height: 95%;
     padding: 10px;
+    overflow-y: scroll;
 }
 
 .mail-compose-body-textarea {
@@ -120,5 +121,9 @@
         width: 100%;
         height: 75%;
         right: 0px;
+        box-sizing: border-box;
+    }
+    .mail-compose-title {
+        height: 1.375rem;
     }
 }
