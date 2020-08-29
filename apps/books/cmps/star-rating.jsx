@@ -2,9 +2,9 @@
 export default function StarRating(props) {
   function getStar(isFilled,key) {
       if (isFilled === false) {
-          return <img key={key} onClick={() => {props.setRatingFn(key+1)}} src="../apps/books/assets/img/star-hollow.svg" />
+          return <div key={key} onClick={() => {props.setRatingFn(key+1)}} className="review-star-hollow"></div>
       } else {
-          return <img key={key} onClick={() => {props.setRatingFn(key+1)}} src="../apps/books/assets/img/star-filled.svg" />
+          return <div key={key} onClick={() => {props.setRatingFn(key+1)}} className="review-star-full"></div>
       }
   }
 

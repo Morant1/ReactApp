@@ -128,6 +128,7 @@
     }
     .mail-compose-recipient,
     .mail-compose-subject {
-        height: 1.375rem;
+        height: 2.375rem;
+        box-sizing: border-box;
     }
 }

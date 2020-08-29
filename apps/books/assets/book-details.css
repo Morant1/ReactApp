@@ -14,10 +14,27 @@
 }
 
 .review-stars {
-    width: 150px;
+    width: 155px;
     display: grid;
     grid-template-columns: repeat(5, 30px);
     margin: 1rem;
+}
+
+.review-stars div {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.1s;
+}
+
+.review-star-hollow {
+    background-image: url(./img/star-hollow.svg);
+}
+
+.review-star-full {
+    background-image: url(./img/star-filled.svg);
 }
 
 .reviews {
@@ -25,7 +42,7 @@
     font-weight: 300;
 }
 
-form .review-stars img:hover {
+form .review-stars div:hover {
     border-radius: 1000px;
     background-color: #fce8e655;
     cursor: pointer;
