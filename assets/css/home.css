@@ -11,7 +11,9 @@ main {
     position: absolute;
     top: 60%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    overflow-x: hidden;
+    width: 100vw;
 }
 
 .position-img {
@@ -33,9 +35,10 @@ main {
     color: #2b2424ed;
 }
 
-.home-container img {
+
+/* .home-container img {
     width: 150%;
-}
+} */
 
 .imgs .img-home {
     width: 40px;
@@ -50,9 +53,9 @@ main {
     .home-title {
         font-size: 1rem;
     }
-    .home-container img {
+    /* .home-container img {
         width: 210%;
-    }
+    } */
 }
 
 @media (max-width: 540px) {
