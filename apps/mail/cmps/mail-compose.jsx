@@ -44,6 +44,7 @@ export default class MailCompose extends React.Component {
     onInputChange = (ev) => {
         const key = ev.target.name
         const value = ev.target.value
+        console.log(key,value)
         this.setState({[key]: value})
     }
 
@@ -52,7 +53,6 @@ export default class MailCompose extends React.Component {
     }
     
     onBodyInput = (ev) => {
-        // console.dir(ev.target.innerText)
         this.setState({body:ev.target.parentElement.innerHTML,bodyPlainText:ev.target.innerText})
     }
 
@@ -67,7 +67,7 @@ export default class MailCompose extends React.Component {
     render() {
         return (
             <div className="mail-compose-container">
-                <div className="mail-compose-title"><span>New Message</span><span onClick={() => {window.location.replace(`${window.location.origin}${window.location.pathname}#/mail/inbox`)}} className="mail-compose-close">X</span></div>
+                <div className="mail-compose-title"><span>New Message</span><span onClick={() => {window.location.assign(`${window.location.origin}${window.location.pathname}#/mail/inbox`)}} className="mail-compose-close">X</span></div>
                 <div className="mail-compose-recipient">
                     <input type="email" className="mail-compose-rec-input" value={this.state.recipient} placeholder="Receipients" name="recipient" onChange={this.onInputChange}></input>
                 </div>

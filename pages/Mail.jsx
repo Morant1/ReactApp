@@ -61,7 +61,7 @@ export default class MailApp extends React.Component {
     onRead = (id) => {
         MailService.markAsRead(id).then(res => this.getMailsForDisplay())
         const link = utils.relativeLink(`#/mail/inbox/${id}`)
-        window.location.replace(link)
+        window.location.assign(link)
     }
 
     onRemove = (id) => {
@@ -94,12 +94,18 @@ export default class MailApp extends React.Component {
 
 
     onSendMail = (mail) => {
-        console.log('mail to add',mail)
-        MailService.addMail(mail.subject,mail.body,mail.bodyPlainText)
+        // console.log('mail to add',mail)
+        var body = mail.body
+        var bodyPlainText = mail.bodyPlainText
+        if (!body && !bodyPlainText) {
+            body = mail.inBodyPlainText
+            bodyPlainText = mail.inBodyPlainText
+        }
+        MailService.addMail(mail.subject,body,bodyPlainText)
         .then(res => {
             this.getMailsForDisplay()
             const link = utils.relativeLink(`#/mail/inbox/`)
-            window.location.replace(link)
+            window.location.assign(link)
         })
     }
 

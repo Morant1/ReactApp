@@ -11,7 +11,7 @@ export class FilterToolbar extends React.Component {
         var path = url.substring(0, url.indexOf("?"));
         if (!path) path = window.location.href;
         var newPath = `${path}?onlyread=${this.state.onlyread}&sortby=${this.state.sortby}`
-        window.location.replace(newPath)
+        window.location.assign(newPath)
     }
 
     onFilter = (ev) => {

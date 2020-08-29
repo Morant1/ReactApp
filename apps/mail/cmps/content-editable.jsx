@@ -27,7 +27,11 @@ export class ContentEditableArea extends React.Component {
     }
 
     shouldRenderRecievedValue = () => {
-        if (this.state.recValue) return <div className="received-value-container" suppressContentEditableWarning={true} contentEditable="true" dangerouslySetInnerHTML={{__html: this.state.recValue}}></div>
+        if (this.state.recValue) {
+            // const fakeEv = {target:{parentElement:{innerHTML:this.state.recValue},innerText:this.state.recValue}}
+            return <div className="received-value-container" onInput={this.props.onChange} suppressContentEditableWarning={true} contentEditable="true" dangerouslySetInnerHTML={{__html: this.state.recValue}}></div>
+        }
+        return <div className="text-editor" onInput={this.props.onChange} contentEditable="true"></div>
     }
     shouldRenderReplyValue = () => {
         if (this.state.replyValue) return( 
@@ -41,8 +45,7 @@ export class ContentEditableArea extends React.Component {
     render() {
         return (
             <div className="nested-editable-container">
-            <div className="text-editor" onInput={this.props.onChange} contentEditable="true">
-            </div>
+            
             {this.shouldRenderRecievedValue()}
             {this.shouldRenderReplyValue()}
             </div>

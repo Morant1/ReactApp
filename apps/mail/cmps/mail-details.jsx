@@ -26,30 +26,30 @@ export default class MailDetails extends React.Component {
         // const recipient = this.state.mail.author
         // const body = this.state.mail.body
         const link = utils.relativeLink(`#/mail/compose?reply=${this.state.mail.id}`)
-        window.location.replace(link)
-        // window.location.replace(`/#/mail/compose?body=${body}&recipient=${recipient}&subject=${subject}`)
+        window.location.assign(link)
+        // window.location.assign(`/#/mail/compose?body=${body}&recipient=${recipient}&subject=${subject}`)
     }
 
     onArchive = () => {
         MailService.toggleArchived(this.state.mail.id)
         const link = utils.relativeLink('#/mail/inbox')
-        window.location.replace(link)
+        window.location.assign(link)
     }
 
     onRemove = () => {
         MailService.removeMail(this.state.mail.id)
         const link = utils.relativeLink('#/mail/inbox')
-        window.location.replace(link)
+        window.location.assign(link)
         }
 
     onUnread = () => {
         MailService.markAsUnRead(this.state.mail.id)
         const link = utils.relativeLink('#/mail/inbox')
-        window.location.replace(link)
+        window.location.assign(link)
     }
 
     onSaveAsNote = () => {
-        window.location.replace(`#/keep/addnote?text=${this.state.mail.body}`)
+        window.location.assign(`#/keep/addnote?text=${this.state.mail.body}`)
     }
 
     componentDidMount() {
