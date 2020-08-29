@@ -10,7 +10,8 @@ export default class MailPreview extends React.Component {
         isStarred: false,
         author: '',
         isArchived: false,
-        isChecked: false
+        isChecked: false,
+        bodyPlainText: ''
     }
     
 
@@ -51,7 +52,7 @@ export default class MailPreview extends React.Component {
                 <div className="mail-preview-checkbox" onClick={() => {this.props.checkFn(this.state.id)}}>{this.isMailChecked()}</div>
                 <div className="mail-preview-star" onClick={() => {this.props.starFn(this.state.id)}}>{this.isMailStarred()}</div>
                 <div className="mail-preview-author" onClick={() => {this.props.readFn(this.state.id)}}>{this.state.author}</div>
-                <div className="mail-preview-contents" onClick={() => {this.props.readFn(this.state.id)}}><span className="mail-previw-subject">{this.state.subject} -</span><span className="mail-preview-body"> {this.state.body}</span></div>
+                <div className="mail-preview-contents" onClick={() => {this.props.readFn(this.state.id)}}><span className="mail-previw-subject">{this.state.subject} -</span><span className="mail-preview-body">{this.state.bodyPlainText} </span></div>
                 <div className="mail-preview-sentAt">{formatDate(this.state.sentAt)}</div>
                 <div className="mail-preview-remove-container">
                     <div className="mail-preview-remove" onClick={() => {this.props.removeFn(this.state.id)}}></div>

@@ -81,7 +81,6 @@
 }
 
 .mail-compose-body-container {
-    width: 100%;
     height: 95%;
     padding: 10px;
 }
@@ -92,6 +91,28 @@
     height: 95%;
     border: 0px;
     text-align: left;
+}
+
+.nested-editable-container {
+    height: 100%;
+}
+
+.nested-editable-container .text-editor,
+.reply-value-container * {
+    outline: 0px;
+    font-weight: 300;
+}
+
+.reply-value-container {
+    color: #777;
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+    box-shadow: inset 1px 0px 0px 0px #777;
+    font-size: 0.875rem;
+}
+
+.reply-header {
+    font-size: 0.75rem;
 }
 
 @media (max-width: 800px) {

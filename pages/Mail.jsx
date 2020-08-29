@@ -93,7 +93,8 @@ export default class MailApp extends React.Component {
 
 
     onSendMail = (mail) => {
-        MailService.addMail(mail.subject,mail.body)
+        console.log('mail to add',mail)
+        MailService.addMail(mail.subject,mail.body,mail.bodyPlainText)
         .then(res => {
             this.getMailsForDisplay()
             const link = this.relativeLink(`#/mail/inbox/`)
@@ -122,7 +123,6 @@ export default class MailApp extends React.Component {
     }
     
     onSearch = (searchQuery) => {
-        // window.location.replace(`/#/mail/inbox/`)
         this.setState({searchQuery},this.getMailsForDisplay)
     }
 
@@ -140,6 +140,7 @@ export default class MailApp extends React.Component {
                 <Route component={() => <MailCompose sendFn={this.onSendMail} searchParams={this.props.location.search} />} exact path="/mail/compose" />
             </Route>
             <Route  component={MailDetails} path="/mail/inbox/:mailId" />
+            
             </Switch>
             </div>
             </section>

@@ -17,11 +17,70 @@ export const MailService = {
     bulkAction
 }
 
-var templateMails = [
-    { id: 'aeio1', subject: 'WHERE ARE YOU', isRead: false, body: 'I hope you\'re not talking about what we said we won\'t talk about', sentAt: 1598465996748, isStarred: false, author: 'Tyler Durden', isArchived: false, mailAddress: 'tdurden@gmail.com', isChecked: false },
-    { id: utils.makeId(), subject: 'I\'m knocking...', isRead: true, body: '', sentAt: 1593465996448, isStarred: false, author: 'Walter White', isArchived: false, mailAddress: 'heisenberg@gmail.com', isChecked: false },
-    { id: utils.makeId(), subject: 'Noice', isRead: false, body: 'Cool cool cool cool cool cool cool', sentAt: 1598435995748, isStarred: true, author: 'Jake Peralta', isArchived: false, mailAddress: 'jakep@nypd.gov', isChecked: false },
-    { id: utils.makeId(), subject: 'REVENGE!', isRead: false, body: 'My name is Maximus Decimus Meridius, Commander of the Armies of the North, General of the Felix Legions, loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son, husband to a murdered wife. And I will have my vengeance, in this life or the next.', sentAt: 1598465596718, isStarred: true, author: 'Maximus Decimus Meridius', isArchived: false, mailAddress: 'mdm@yahoo.com', isChecked: false }
+var templateMails = [{
+        "id": "aeio1",
+        "subject": "WHERE ARE YOU",
+        "isRead": true,
+        "body": "I hope you're not talking about what we said we won't talk about",
+        "sentAt": 1598465996748,
+        "isStarred": false,
+        "author": "Tyler Durden",
+        "isArchived": false,
+        "mailAddress": "tdurden@gmail.com",
+        "isChecked": false,
+        "bodyPlainText": "I hope you're not talking about what we said we won't talk about"
+    },
+    {
+        "id": "JNaLg",
+        "subject": "I'm knocking...",
+        "isRead": true,
+        "body": "",
+        "sentAt": 1593465996448,
+        "isStarred": false,
+        "author": "Walter White",
+        "isArchived": false,
+        "mailAddress": "heisenberg@gmail.com",
+        "isChecked": false
+    },
+    {
+        "id": "8tlnD",
+        "subject": "Noice",
+        "isRead": false,
+        "body": "Cool cool cool cool cool cool cool",
+        "sentAt": 1598435995748,
+        "isStarred": true,
+        "author": "Jake Peralta",
+        "isArchived": false,
+        "mailAddress": "jakep@nypd.gov",
+        "isChecked": false,
+        "bodyPlainText": "Cool cool cool cool cool cool cool"
+    },
+    {
+        "id": "SUSsc",
+        "subject": "REVENGE!",
+        "isRead": false,
+        "body": "My name is Maximus Decimus Meridius, Commander of the Armies of the North, General of the Felix Legions, loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son, husband to a murdered wife. And I will have my vengeance, in this life or the next.",
+        "sentAt": 1598465596718,
+        "isStarred": true,
+        "author": "Maximus Decimus Meridius",
+        "isArchived": false,
+        "mailAddress": "mdm@yahoo.com",
+        "isChecked": false,
+        "bodyPlainText": "My name is Maximus Decimus Meridius, Commander of the Armies of the North, General of the Felix Legions, loyal servant to the true emperor, Marcus Aurelius. Father to a murdered son, husband to a murdered wife. And I will have my vengeance, in this life or the next."
+    },
+    {
+        "id": "zkw8Z",
+        "subject": "I am Jack's unwillingness to continue",
+        "isRead": true,
+        "body": "<div class=\"text-editor\" contenteditable=\"true\">Me? no. of course not...</div><div class=\"reply-value-container\"><div class=\"reply-header\" contenteditable=\"true\">Tyler Durden wrote on 8/26/2020:</div><div class=\"reply-value\" contenteditable=\"true\">I hope you're not talking about what we said we won't talk about</div></div>",
+        "sentAt": 1598695749984,
+        "isStarred": false,
+        "author": "The Narrator",
+        "isArchived": false,
+        "mailAddress": "me@appsusmail.com",
+        "isChecked": false,
+        "bodyPlainText": "Me? no. of course not..."
+    }
 ]
 
 function bulkAction(action) {
@@ -63,7 +122,7 @@ function recursiveChangeStatus(mails, fn, i = 0) {
 
 }
 
-function addMail(subject, body, author = 'Keyser Söze', mailAddress = 'me@appsusmail.com') {
+function addMail(subject, body, bodyPlainText, author = 'Keyser Söze', mailAddress = 'me@appsusmail.com') {
     return getAllMails().then(
         mails => {
             const newMail = {
@@ -76,7 +135,8 @@ function addMail(subject, body, author = 'Keyser Söze', mailAddress = 'me@appsu
                 author,
                 isArchived: false,
                 mailAddress,
-                isChecked: false
+                isChecked: false,
+                bodyPlainText
             }
             mails.push(newMail)
             storageService.saveToStorage('mailsList', mails)

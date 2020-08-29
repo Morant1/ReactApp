@@ -1,10 +1,14 @@
-
+import {ContentEditableArea} from './content-editable.jsx'
+import {MailService} from '../services/mail-service.js'
 
 export default class MailCompose extends React.Component {
     state = {
         recipient: '',
         subject: '',
-        body:''
+        body:'',
+        bodyPlainText: '',
+        inBody: '',
+        inBodyPlainText: ''
     }
     
     componentDidUpdate(prevProps, prevState) {
@@ -13,16 +17,28 @@ export default class MailCompose extends React.Component {
         }
     }
     
+    isReply = (id) => {
+        MailService.getMailDetails(id).then(mail => {
+            const newSubjectText = `Re: ${mail.subject}`
+            this.setState({inBody:mail,subject:newSubjectText,recipient:mail.author})
+            // this.setState({subject:newSubjectText})
+            // this.setState({recipient:mail.author})
+        })
+    }
+
     updateFromQueryString = () => {
         const search = this.props.searchParams;
         const params = new URLSearchParams(search);
-        var body = params.get('body');
         var subject = params.get('subject');
         var recipient = params.get('recipient');
-        if (!body) body = ''
+        if (params.get('reply')) return this.isReply(params.get('reply'))
+        var inBodyPlainText = params.get('body');
+        if (!inBodyPlainText) inBodyPlainText = ''
         if (!subject) subject = ''
         if (!recipient) recipient = ''
-        this.setState({body,subject,recipient})
+        
+        console.log(inBodyPlainText)
+        this.setState({inBodyPlainText: inBodyPlainText,subject,recipient})
     }
 
     onInputChange = (ev) => {
@@ -35,6 +51,11 @@ export default class MailCompose extends React.Component {
         this.updateFromQueryString()
     }
     
+    onBodyInput = (ev) => {
+        // console.dir(ev.target.innerText)
+        this.setState({body:ev.target.parentElement.innerHTML,bodyPlainText:ev.target.innerText})
+    }
+
     cleanMail = () => {
         this.setState({
             recipient: '',
@@ -54,7 +75,8 @@ export default class MailCompose extends React.Component {
                     <input type="text" className="mail-compose-subject-input" value={this.state.subject} placeholder="Subject" name="subject" onChange={this.onInputChange}></input>
                 </div>
                 <div className="mail-compose-body-container">
-                    <textarea className="mail-compose-body-textarea" name="body" value={this.state.body} onChange={this.onInputChange}></textarea>
+                    <ContentEditableArea onChange={this.onBodyInput} plainText={this.state.inBodyPlainText} replyValue={this.state.inBody}/>
+                    {/* <textarea className="mail-compose-body-textarea" name="body" value={this.state.body} onChange={this.onInputChange}></textarea> */}
                 </div>
                 <div className="mail-compose-buttons">
                     <button onClick={() => {this.props.sendFn(this.state)}}>Send</button>

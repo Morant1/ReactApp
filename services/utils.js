@@ -1,5 +1,17 @@
 export const utils = {
-    makeId
+    makeId,
+    makeHtmlStringNotEditable,
+    relativeLink
+}
+
+function makeHtmlStringNotEditable(string) {
+    // this will take an html string and remove the "content-editable"
+    return string.split('contenteditable="true"').join('')
+
+}
+
+function relativeLink(path) {
+    return `${window.location.origin}${window.location.pathname}${path}`
 }
 
 function makeId(length = 5) {
