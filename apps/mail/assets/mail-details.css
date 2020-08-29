@@ -94,5 +94,11 @@
     background-image: url(../assets/imgs/icon-action-bookmark_border_24px.svg);
 }
 
+@media (max-width: 800px) {
+    .mail-details-container {
+        max-height: 70vh;
+    }
+}
+
 
 /* .mail */
