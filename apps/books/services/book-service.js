@@ -12,7 +12,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/20.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000796/samples/books/9781785038938_l2bim7.jpg",
         "language": "en",
         "listPrice": {
             "amount": 109,
