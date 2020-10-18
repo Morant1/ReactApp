@@ -34,7 +34,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/14.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000799/samples/books/91PgAnS-HzL_x1hlhv.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 44,
@@ -56,7 +56,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/2.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000804/samples/books/9780143773337_iayb63.jpg",
         "language": "he",
         "listPrice": {
             "amount": 108,
@@ -78,7 +78,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/16.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000789/samples/books/wolves_p9yvf4.jpg",
         "language": "en",
         "listPrice": {
             "amount": 30,
@@ -100,7 +100,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/12.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000790/samples/books/The-Book-of-Two-Ways-NA-hc-400_r7x7xk.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 19,
@@ -122,7 +122,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/1.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000790/samples/books/The-Book-of-Two-Ways-NA-hc-400_r7x7xk.jpg",
         "language": "en",
         "listPrice": {
             "amount": 91,
@@ -144,7 +144,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/14.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000790/samples/books/goosebumps2_wwuchq.jpg",
         "language": "he",
         "listPrice": {
             "amount": 90,
@@ -166,7 +166,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/11.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000785/samples/books/images_zqocwm.jpg",
         "language": "he",
         "listPrice": {
             "amount": 176,
@@ -188,7 +188,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/10.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000786/samples/books/9780143567912_mylsu2.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 116,
@@ -210,7 +210,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/5.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000787/samples/books/original_nzzh1l.jpg",
         "language": "en",
         "listPrice": {
             "amount": 145,
@@ -232,7 +232,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/16.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000779/samples/books/91B_Zbs6KbL_szmyqb.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 157,
@@ -254,7 +254,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/17.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000783/samples/books/9781442538467_pv7maf.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 57,
@@ -276,7 +276,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/8.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000784/samples/books/91opdG2t1KL_cwctdu.jpg",
         "language": "en",
         "listPrice": {
             "amount": 167,
@@ -298,7 +298,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/3.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000762/samples/books/41tkOiFcPwL_sonymo.jpg",
         "language": "he",
         "listPrice": {
             "amount": 150,
@@ -320,7 +320,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/6.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000766/samples/books/71G8jLxxzjL_tuikwu.jpg",
         "language": "en",
         "listPrice": {
             "amount": 58,
@@ -342,7 +342,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/7.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000775/samples/books/9780143567905_fxl8qi.jpg",
         "language": "en",
         "listPrice": {
             "amount": 78,
@@ -364,7 +364,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/10.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000778/samples/books/9780143567899_pka7zl.jpg",
         "language": "en",
         "listPrice": {
             "amount": 118,
@@ -386,7 +386,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/12.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000762/samples/books/61BMXczifwL_xc4xxl.jpg",
         "language": "he",
         "listPrice": {
             "amount": 60,
@@ -408,7 +408,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/20.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000763/samples/books/1596036539-41VO1nUJbPL_p2ns6m.jpg",
         "language": "he",
         "listPrice": {
             "amount": 110,
@@ -430,7 +430,7 @@ const booksJson = [{
             "Computers",
             "Hack"
         ],
-        "thumbnail": "http://coding-academy.org/books-photos/2.jpg",
+        "thumbnail": "https://res.cloudinary.com/coding-academy/image/upload/v1603000764/samples/books/1573837152-41bsvxNUSdL_lucqvt.jpg",
         "language": "sp",
         "listPrice": {
             "amount": 186,
